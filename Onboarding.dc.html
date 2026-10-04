@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="display:flex;flex-direction:column;gap:22px;width:100%;color:#0B0C10;font-family:'Inter',system-ui,sans-serif">
+  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch;padding:22px 24px;border-radius:16px;background:#FFFFFF;border:1px solid #E4E4E7">
+    <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:10px;min-width:0">
+      <span style="font-size:11.5px;letter-spacing:.12em;font-weight:700;color:{{ A }}">{{ title }}</span>
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font-size:34px;font-weight:700;letter-spacing:-.03em">{{ pct }}% complete</span><span style="font-size:14px;color:#71717A">{{ countLabel }}</span></div>
+      <div style="height:8px;border-radius:10px;background:#F1F1F3;overflow:hidden"><div style="height:100%;border-radius:10px;background:{{ A }};width:{{ pctW }}"></div></div>
+    </div>
+    <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:8px;padding:16px 18px;border-radius:12px;background:{{ AL }};min-width:0">
+      <span style="font-size:11.5px;letter-spacing:.1em;font-weight:700;color:{{ A }}">{{ curEyebrow }}</span>
+      <span style="font-size:17px;font-weight:700;line-height:1.3">{{ curTitle }}</span>
+      <span style="font-size:13.5px;color:#52525B;line-height:1.5">{{ curText }}</span>
+      <button onClick="{{ goCurrent }}" style="align-self:flex-start;border:0;cursor:pointer;padding:9px 18px;border-radius:999px;font-size:13.5px;font-weight:600;color:#FFFFFF;background:{{ A }}">{{ curCta }}</button>
+    </div>
+  </div>
+  <sc-if value="{{ hasBlocker }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 18px;border-radius:12px;background:#FEF2F2;border:1px solid #FECACA">
+      <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:700;color:#B91C1C">{{ blocker.title }}</span><span style="font-size:13px;color:#7F1D1D">{{ blocker.text }}</span></span>
+      <button onClick="{{ blocker.go }}" style="border:1px solid #FCA5A5;cursor:pointer;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;background:#FFFFFF;color:#B91C1C">{{ blocker.cta }}</button>
+    </div>
+  </sc-if>
+  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+    <div style="flex:0 1 280px;display:flex;flex-direction:column;gap:16px;min-width:240px">
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;border-radius:14px;background:#FFFFFF;border:1px solid #E4E4E7;overflow:hidden">
+          <div style="padding:12px 16px;border-bottom:1px solid #F1F1F3;font-size:11px;letter-spacing:.12em;color:#71717A;font-weight:700">{{ g.label }}</div>
+          <sc-for list="{{ g.steps }}" as="st" hint-placeholder-count="4">
+            <button onClick="{{ st.go }}" style="display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;align-items:center;width:100%;text-align:left;border:0;border-left:3px solid {{ st.bl }};cursor:pointer;padding:11px 14px;background:{{ st.bg }};color:#0B0C10">
+              <span style="width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:1.5px solid {{ st.ib }};background:{{ st.ibg }};color:{{ st.ifg }}">{{ st.icon }}</span>
+              <span style="display:flex;flex-direction:column;gap:1px;min-width:0"><span style="font-size:13.5px;font-weight:600">{{ st.label }}</span><span style="font-size:12px;font-weight:500;color:{{ st.sc }}">{{ st.status }}</span></span>
+            </button>
+          </sc-for>
+        </div>
+      </sc-for>
+      <button onClick="{{ reset }}" style="align-self:flex-start;border:0;background:transparent;cursor:pointer;padding:0 4px;font-size:12px;color:#A1A1AA;text-decoration:underline;text-underline-offset:3px">Reset demo progress</button>
+    </div>
+
+    <div style="flex:1 1 440px;display:flex;flex-direction:column;border-radius:16px;background:#FFFFFF;border:1px solid #E4E4E7;min-width:0">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;padding:20px 24px;border-bottom:1px solid #F1F1F3">
+        <span style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-size:12px;color:#71717A;font-weight:600">{{ p.kicker }}</span><span style="font-size:22px;font-weight:700;letter-spacing:-.02em">{{ p.label }}</span><span style="font-size:13.5px;color:#52525B;line-height:1.5">{{ p.desc }}</span></span>
+        <span style="padding:4px 11px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap;background:{{ p.sbg }};color:{{ p.sc }}">{{ p.status }}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;padding:20px 24px">
+
+        <sc-if value="{{ v.fields }}" hint-placeholder-val="{{ true }}">
+          <sc-if value="{{ v.photo }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:14px"><div style="width:56px;height:56px;border-radius:50%;background:{{ AL }};color:{{ A }};display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700">{{ initials }}</div><label style="cursor:pointer;padding:8px 14px;border-radius:999px;border:1px solid #D4D4D8;font-size:13px;font-weight:600">{{ photoLabel }}<input type="file" accept="image/*" onChange="{{ setPhoto }}" style="display:none"></input></label></div></sc-if>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+            <sc-for list="{{ fields }}" as="fd" hint-placeholder-count="4"><label style="display:flex;flex-direction:column;gap:6px;grid-column:{{ fd.span }}"><span style="font-size:12.5px;font-weight:600">{{ fd.label }}</span><sc-if value="{{ fd.multi }}" hint-placeholder-val="{{ false }}"><textarea value="{{ fd.value }}" onChange="{{ fd.set }}" rows="3" placeholder="{{ fd.ph }}" style="padding:10px 12px;border-radius:10px;border:1px solid #D4D4D8;outline:none;font-size:13.5px;resize:vertical;line-height:1.5;font-family:inherit"></textarea></sc-if><sc-if value="{{ fd.single }}" hint-placeholder-val="{{ true }}"><input value="{{ fd.value }}" onChange="{{ fd.set }}" placeholder="{{ fd.ph }}" style="padding:10px 12px;border-radius:10px;border:1px solid #D4D4D8;outline:none;font-size:13.5px;font-family:inherit"></input></sc-if></label></sc-for>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="flex:1;height:5px;border-radius:5px;background:#F1F1F3;overflow:hidden"><div style="height:100%;border-radius:5px;background:{{ A }};width:{{ fieldPctW }}"></div></div><span style="font-size:12px;color:#71717A;white-space:nowrap">{{ fieldPctLabel }}</span></div>
+        </sc-if>
+
+        <sc-if value="{{ v.chips }}" hint-placeholder-val="{{ false }}">
+          <sc-for list="{{ chipGroups }}" as="g" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:12.5px;font-weight:700">{{ g.title }}</span><div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ g.opts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.go }}" style="cursor:pointer;padding:7px 13px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.fg }}">{{ o.label }}</button></sc-for></div></div></sc-for>
+        </sc-if>
+
+        <sc-if value="{{ v.exp }}" hint-placeholder-val="{{ false }}">
+          <sc-for list="{{ expList }}" as="x" hint-placeholder-count="2"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 14px;border-radius:12px;border:1px solid #E4E4E7"><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:600">{{ x.role }} · {{ x.co }}</span><span style="font-size:12.5px;color:#71717A">{{ x.yrs }}</span></span><button onClick="{{ x.remove }}" style="border:0;background:transparent;cursor:pointer;font-size:12.5px;color:#A1A1AA">Remove</button></div></sc-for>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px"><sc-for list="{{ expFields }}" as="fd" hint-placeholder-count="3"><input value="{{ fd.value }}" onChange="{{ fd.set }}" placeholder="{{ fd.ph }}" style="padding:10px 12px;border-radius:10px;border:1px solid #D4D4D8;outline:none;font-size:13.5px;font-family:inherit"></input></sc-for></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button onClick="{{ addExp }}" style="border:1px solid #D4D4D8;cursor:pointer;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600;background:#FFFFFF;color:#0B0C10">+ Add experience</button><label style="cursor:pointer;padding:8px 14px;border-radius:999px;border:1px solid #D4D4D8;font-size:13px;font-weight:600">{{ resumeLabel }}<input type="file" onChange="{{ setResume }}" style="display:none"></input></label></div>
+        </sc-if>
+
+        <sc-if value="{{ v.rows }}" hint-placeholder-val="{{ false }}">
+          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:10px;padding:14px 16px;border-radius:12px;border:1px solid {{ r.bd }};background:{{ r.bg }}"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:14px;font-weight:700">{{ r.label }}</span><span style="font-size:12.5px;color:#52525B;line-height:1.45">{{ r.note }}</span></span><span style="display:flex;gap:10px;align-items:center"><span style="padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap;background:{{ r.sbg }};color:{{ r.sc }}">{{ r.status }}</span><sc-if value="{{ r.hasAct }}" hint-placeholder-val="{{ false }}"><button onClick="{{ r.act }}" style="border:1px solid #D4D4D8;cursor:pointer;padding:7px 13px;border-radius:999px;font-size:12.5px;font-weight:600;background:#FFFFFF;color:#0B0C10;white-space:nowrap">{{ r.actLabel }}</button></sc-if></span></div><sc-if value="{{ r.hasFix }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:8px;flex-wrap:wrap"><input value="{{ r.fixVal }}" onChange="{{ r.setFix }}" placeholder="{{ r.fixPh }}" style="flex:1;min-width:200px;padding:9px 12px;border-radius:10px;border:1px solid #FCA5A5;outline:none;font-size:13.5px;font-family:inherit"></input><button onClick="{{ r.submitFix }}" style="border:0;cursor:pointer;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;color:#FFFFFF;background:{{ A }}">Resubmit</button></div></sc-if></div></sc-for>
+        </sc-if>
+
+        <sc-if value="{{ v.split }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:14px;line-height:1.6;color:#3F3F46">PowerHouse can route customer requests to your business automatically and coordinate delivery through its AI and expert network.</span>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+            <div style="display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:12px;background:#0B0C10;color:#FFFFFF"><span style="font-size:12px;letter-spacing:.1em;font-weight:700;color:#C9D3EA">YOU HANDLE</span><sc-for list="{{ youHandle }}" as="x" hint-placeholder-count="4"><span style="font-size:14px">• {{ x }}</span></sc-for></div>
+            <div style="display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:12px;background:{{ AL }}"><span style="font-size:12px;letter-spacing:.1em;font-weight:700;color:{{ A }}">POWERHOUSE HANDLES</span><sc-for list="{{ phHandle }}" as="x" hint-placeholder-count="6"><span style="font-size:14px">• {{ x }}</span></sc-for></div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ v.toggles }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;border-radius:12px;border:1px solid #E4E4E7;overflow:hidden"><sc-for list="{{ toggles }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.go }}" style="display:grid;grid-template-columns:minmax(0,1fr) auto 44px;gap:12px;align-items:center;width:100%;text-align:left;border:0;border-bottom:1px solid #F1F1F3;background:#FFFFFF;cursor:pointer;padding:14px 16px;color:#0B0C10"><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:600">{{ t.label }}</span><span style="font-size:12.5px;color:#71717A">{{ t.sub }}</span></span><span style="font-size:12.5px;font-weight:600;color:{{ t.sc }}">{{ t.state }}</span><span style="width:40px;height:24px;border-radius:999px;padding:3px;display:flex;justify-content:{{ t.j }};background:{{ t.tb }}"><span style="width:18px;height:18px;border-radius:50%;background:#FFFFFF"></span></span></button></sc-for></div>
+        </sc-if>
+
+        <sc-if value="{{ v.agreement }}" hint-placeholder-val="{{ false }}">
+          <sc-if value="{{ agr.showDoc }}" hint-placeholder-val="{{ false }}">
+            <div style="max-height:320px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding:20px 22px;border-radius:12px;border:1px solid #E4E4E7;background:#FAFAFA">
+              <span style="font-size:16px;font-weight:700">{{ agr.name }}</span><span style="font-size:12px;color:#71717A">Version 2.3 · Effective Oct 1, 2026 · PowerHouse Networks, Inc.</span>
+              <sc-for list="{{ agr.sections }}" as="sec" hint-placeholder-count="5"><div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13.5px;font-weight:700">{{ sec.h }}</span><span style="font-size:13px;line-height:1.6;color:#3F3F46">{{ sec.t }}</span></div></sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ agr.canAccept }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ agr.toggleAgree }}" style="display:flex;gap:10px;align-items:center;border:0;background:transparent;cursor:pointer;padding:0;font-size:13.5px;color:#0B0C10;text-align:left"><span style="width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#FFFFFF;border:1.5px solid {{ agr.cbBd }};background:{{ agr.cbBg }}">{{ agr.mark }}</span>I have read and agree to the {{ agr.name }}.</button>
+          </sc-if>
+          <sc-if value="{{ agr.isSigned }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:12px;background:#ECFDF3;color:#15803D;font-size:13.5px;font-weight:600">✓ Agreement accepted · {{ agr.signedOn }} · signed by {{ agr.signer }}</div></sc-if>
+        </sc-if>
+
+        <sc-if value="{{ v.training }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12.5px;font-weight:700">What you'll learn</span><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px"><sc-for list="{{ lessons }}" as="l" hint-placeholder-count="7"><span style="font-size:13px;color:#3F3F46">✓ {{ l }}</span></sc-for></div></div>
+          <div style="display:flex;flex-direction:column;gap:12px;padding:16px 18px;border-radius:12px;border:1px solid #E4E4E7;background:#FAFAFA">
+            <span style="font-size:12px;letter-spacing:.1em;color:#71717A;font-weight:700">SAMPLE REVIEW TASK</span>
+            <span style="font-size:13.5px;color:#3F3F46;line-height:1.5">Source: Q3 revenue $1,270,000 · COGS $800,000</span>
+            <div style="padding:12px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E4E7;font-size:14px;line-height:1.55"><span style="font-size:11.5px;color:#71717A;font-weight:600">AI OUTPUT</span><br>“Q3 gross margin is 42%, calculated as (revenue − COGS) ÷ revenue. The calculation is correct.”</div>
+            <span style="font-size:13.5px;font-weight:600">Is the AI's statement correct?</span>
+            <div style="display:flex;gap:6px"><sc-for list="{{ trainOpts }}" as="o" hint-placeholder-count="2"><button onClick="{{ o.go }}" style="cursor:pointer;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.fg }}">{{ o.label }}</button></sc-for></div>
+            <textarea value="{{ trainWhy }}" onChange="{{ setTrainWhy }}" rows="2" placeholder="Explain why, with evidence from the source." style="padding:10px 12px;border-radius:10px;border:1px solid #D4D4D8;outline:none;font-size:13.5px;resize:vertical;line-height:1.5;font-family:inherit;background:#FFFFFF"></textarea>
+            <sc-if value="{{ trainHasResult }}" hint-placeholder-val="{{ false }}"><div style="padding:12px 14px;border-radius:10px;font-size:13.5px;line-height:1.5;background:{{ trainRes.bg }};color:{{ trainRes.fg }}"><strong>{{ trainRes.title }}</strong> {{ trainRes.text }}</div></sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ v.ready }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ readyList }}" as="r" hint-placeholder-count="5"><span style="font-size:14.5px;color:{{ r.c }};font-weight:600">{{ r.icon }} {{ r.label }}</span></sc-for></div>
+          <span style="font-size:14px;color:#52525B;line-height:1.5">{{ readyText }}</span>
+        </sc-if>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding-top:14px;border-top:1px solid #F1F1F3">
+          <span style="font-size:12.5px;color:#71717A">{{ p.hint }}</span>
+          <div style="display:flex;gap:8px"><sc-if value="{{ p.hasSecondary }}" hint-placeholder-val="{{ false }}"><button onClick="{{ p.secondary }}" style="border:1px solid #D4D4D8;cursor:pointer;padding:9px 16px;border-radius:999px;font-size:13.5px;font-weight:600;background:#FFFFFF;color:#0B0C10">{{ p.secondaryLabel }}</button></sc-if><button onClick="{{ p.primary }}" style="border:0;cursor:pointer;padding:9px 18px;border-radius:999px;font-size:13.5px;font-weight:600;color:#FFFFFF;background:{{ p.pbg }}">{{ p.primaryLabel }}</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:60;padding:11px 18px;border-radius:999px;background:#0B0C10;color:#FFFFFF;font-size:13.5px;white-space:nowrap">{{ toast }}</div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1100px&quot;,&quot;height&quot;:&quot;900px&quot;},&quot;kind&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;expert&quot;,&quot;partner&quot;],&quot;default&quot;:&quot;expert&quot;,&quot;tsType&quot;:&quot;'expert'|'partner'&quot;},&quot;onExit&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;() =&gt; void&quot;}}">
+const SEED={
+ expert:{sel:null,f:{name:'Zeerak',title:'Commercial contracts specialist',location:'Toronto, Canada',bio:'Former in-house counsel. I review vendor and customer agreements for risk.',exp:'9 years in commercial law and contract operations.'},photo:'',skills:['Contract review','Compliance','Financial analysis'],years:'5–10 years',tools:['Excel','Ironclad'],expList:[{co:'Halden Group',role:'Senior Legal Counsel',yrs:'2019–2025'}],expDraft:{co:'',role:'',yrs:''},resume:'Zeerak_CV.pdf',ver:{id:'Verified',pro:'Verified'},agr:{open:false,agree:false,on:''},train:{verdict:'',why:'',result:''},done:{profile:true,skills:true,experience:true},opt:{portfolio:'',extra:[],logo:'',team:[]},services:[],bver:{info:'Verified',web:'Verified',contact:'Verified'},bfix:'',cust:{leads:true,referrals:true,existing:false},ints:{email:'Connected',calendar:'Connected',crm:'Not connected',files:'Connected'},perms:{comms:true,files:true,calls:false,improve:true}},
+ partner:{sel:null,f:{biz:'Ned Partners',web:'nedpartners.com',industry:'Professional services',desc:'Legal, finance and operations support for mid-market companies.',contact:'Ned · ned@nedpartners.com',loc:'Chicago, IL'},services:['Contract review','Accounting','Customer support'],bver:{info:'Needs attention',web:'Verified',contact:'Verified'},bfix:'',cust:{leads:true,referrals:true,existing:true},ints:{email:'Connected',calendar:'Connected',crm:'Not connected',files:'Not connected'},perms:{comms:true,files:true,calls:false,improve:true},agr:{open:false,agree:false,on:''},done:{profile:true,services:true,customers:true},opt:{logo:'',team:[],portfolio:'',extra:[]},skills:[],tools:[],years:'',expList:[],expDraft:{co:'',role:'',yrs:''},resume:'',photo:'',ver:{id:'Verified',pro:'Verified'},train:{verdict:'',why:'',result:''}}
+};
+const STEPS={
+ expert:[['profile','Profile setup','Who you are, so clients and reviewers can trust your work.',1],['skills','Skills & expertise','What you know. Tasks are matched to these.',1],['experience','Experience','Where you\'ve applied your expertise.',1],['verification','Verification','We confirm your identity and professional standing.',1],['agreement','Expert agreement','The terms for reviewing work on PowerHouse.',1],['training','Review training','How to review AI work on PowerHouse, then one sample task.',1],['ready','Ready to work','',1],['portfolio','Add portfolio','Optional · share examples of past work.',0],['extra','Additional expertise','Optional · unlock more task types.',0]],
+ partner:[['profile','Business profile','Who your business is.',1],['services','Services','What you provide to customers.',1],['verification','Business verification','We confirm your business details.',1],['customers','Customer setup','How customer requests flow through PowerHouse.',1],['integrations','Integrations','Connect the systems you use with customers.',1],['permissions','Permissions','Decide what PowerHouse can access and reuse.',1],['agreement','Partner agreement','The terms of your partnership with PowerHouse.',1],['ready','Ready to receive work','',1],['logo','Brand & logo','Optional · shown to your customers.',0],['team','Invite teammates','Optional · share the workspace.',0]]
+};
+const AGR={expert:{name:'Expert Agreement',sections:[['1. Role','You review, verify and correct AI-generated work on tasks you choose to accept.'],['2. Confidentiality','Client information you see after pickup is confidential and may only be used to complete the task.'],['3. Quality','Findings must be supported by evidence. Reviews may be validated by a second expert.'],['4. Compensation','You are paid per accepted task, plus sample-value rewards for verified findings during the pilot.'],['5. Data','Your corrections and reasoning may be used, anonymized, to improve AI models where clients permit.'],['6. Termination','Either party may end this agreement with 14 days\' notice.']]},
+ partner:{name:'Business Partner Agreement',sections:[['1. Relationship','You own the customer relationship. PowerHouse provides execution through AI and its expert network.'],['2. Customer data','You control what PowerHouse can access. Customer data is used only as you permit.'],['3. Delivery','PowerHouse coordinates delivery; you approve exceptions and final outcomes where required.'],['4. Fees','PowerHouse charges an execution fee per project; you set customer pricing.'],['5. Model improvement','Anonymized work may improve the network only where you and your customer allow it.'],['6. Term','12-month term, renewing annually. 30 days\' notice to terminate.']]}};
+const TODAY='Oct 2, 2026';
+class Component extends DCLogic {
+  constructor(p){ super(p); const k=this.kind(); let saved=null; try{ saved=JSON.parse(localStorage.getItem('ph-onb-'+k)||'null'); }catch(e){} this.state=Object.assign({toast:null},JSON.parse(JSON.stringify(SEED[k])),saved||{}); }
+  kind(){ return (this.props&&this.props.kind)==='partner'?'partner':'expert'; }
+  componentDidUpdate(){ try{ const s=Object.assign({},this.state); delete s.toast; localStorage.setItem('ph-onb-'+this.kind(),JSON.stringify(s)); }catch(e){} }
+  componentWillUnmount(){ clearTimeout(this._t); (this._tm||[]).forEach(clearTimeout); }
+  flash(m){ clearTimeout(this._t); this.setState({toast:m}); this._t=setTimeout(()=>this.setState({toast:null}),2400); }
+  later(fn,ms){ this._tm=this._tm||[]; this._tm.push(setTimeout(fn,ms)); }
+  isDone(id){ const s=this.state,k=this.kind();
+    if(id==='verification') return k==='expert'?(s.ver.id==='Verified'&&s.ver.pro==='Verified'):(s.bver.info==='Verified'&&s.bver.web==='Verified'&&s.bver.contact==='Verified');
+    if(id==='agreement') return !!s.agr.on;
+    if(id==='training') return s.train&&s.train.result==='pass';
+    if(id==='integrations') return s.ints.email==='Connected'&&s.ints.files==='Connected';
+    if(id==='portfolio') return !!(s.opt.portfolio||'').trim();
+    if(id==='extra') return (s.opt.extra||[]).length>0;
+    if(id==='logo') return !!s.opt.logo;
+    if(id==='team') return (s.opt.team||[]).length>0;
+    return !!s.done[id]; }
+  renderVals(){
+    const s=this.state,k=this.kind(),EX=k==='expert';
+    const A=EX?'#8A6B3F':'#5B6FA3', AL=EX?'#F6EFE4':'#EEF1F8';
+    const steps=STEPS[k].map(([id,label,desc,req])=>({id,label,desc,req:!!req}));
+    const reqSteps=steps.filter(x=>x.req&&x.id!=='ready');
+    const doneN=reqSteps.filter(x=>this.isDone(x.id)).length;
+    const allDone=doneN===reqSteps.length;
+    const cur=reqSteps.find(x=>!this.isDone(x.id))||steps.find(x=>x.id==='ready');
+    const sel=s.sel||cur.id;
+    const needs=id=>(id==='verification'&&!EX&&s.bver.info==='Needs attention');
+    const statusOf=x=>{ if(x.id==='ready') return allDone?['Ready','#15803D','#ECFDF3']:['Locked','#A1A1AA','#F4F4F5']; if(this.isDone(x.id)) return ['Complete','#15803D','#ECFDF3']; if(needs(x.id)) return ['Needs attention','#B91C1C','#FEF2F2']; if(x.id==='agreement'&&x.id===cur.id) return ['Action required','#B45309','#FFFBEB']; if(x.id===cur.id) return ['In progress',A,AL]; return x.req?['Not started','#71717A','#F4F4F5']:['Optional','#71717A','#F4F4F5']; };
+    const goStep=id=>()=>this.setState({sel:id});
+    const mk=x=>{const st=statusOf(x),on=x.id===sel,d=this.isDone(x.id);return {label:x.label,status:st[0],sc:st[1],go:goStep(x.id),bg:on?AL:'#FFFFFF',bl:on?A:'transparent',icon:d?'✓':needs(x.id)?'!':x.id===cur.id?'→':'',ib:d?'#15803D':needs(x.id)?'#DC2626':x.id===cur.id?A:'#D4D4D8',ibg:d?'#15803D':needs(x.id)?'#DC2626':'#FFFFFF',ifg:d||needs(x.id)?'#FFFFFF':A};};
+    const groups=[{label:'REQUIRED',steps:steps.filter(x=>x.req).map(mk)},{label:'OPTIONAL',steps:steps.filter(x=>!x.req).map(mk)}];
+    const pct=Math.round(doneN/reqSteps.length*100);
+    const CURTXT={profile:'Tell us who you are.',skills:'Choose the areas you can review.',experience:'Add where you\'ve worked.',verification:EX?'Confirm your identity and professional standing.':'Fix your business information so we can verify you.',agreement:EX?'Review and accept the Expert Agreement to start receiving work.':'Review and accept the Business Partner Agreement.',training:'Complete one sample review before you can accept work.',services:'Choose the services you provide.',customers:'Confirm how customer requests will flow.',integrations:'Connect the systems you use to manage customers so PowerHouse can coordinate work in the background.',permissions:'Decide what PowerHouse can access.',ready:EX?'Your first tasks are available.':'You\'re ready to receive work.'};
+    const blk=!EX&&s.bver.info==='Needs attention'?{title:'Verification needs attention',text:'We couldn\'t match your registered business name to "Ned Partners".',cta:'Review information',go:goStep('verification')}:null;
+    const set=(path,v)=>this.setState(st=>{const o=JSON.parse(JSON.stringify(st));let t=o;path.slice(0,-1).forEach(p=>{t=t[p];});t[path[path.length-1]]=v;delete o.toast;return o;});
+    const complete=(id,msg)=>{ this.setState(st=>({done:Object.assign({},st.done,{[id]:true})})); const idx=reqSteps.findIndex(x=>x.id===id); const nxt=reqSteps.slice(idx+1).find(x=>!this.isDone(x.id)); this.setState({sel:nxt?nxt.id:'ready'}); this.flash(msg||'Saved'); };
+    const chip=(on)=>({bg:on?A:'#FFFFFF',fg:on?'#FFFFFF':'#3F3F46',bd:on?A:'#D4D4D8'});
+    const toggleIn=(key,val)=>this.setState(st=>{const arr=st[key]||[];return {[key]:arr.indexOf(val)>-1?arr.filter(x=>x!==val):arr.concat([val])};});
+    const v={fields:false,photo:false,chips:false,exp:false,rows:false,split:false,toggles:false,agreement:false,training:false,ready:false};
+    let fields=[],chipGroups=[],rows=[],toggles=[],P={hint:'',hasSecondary:false,secondary:()=>{},secondaryLabel:'',primaryLabel:'Save & continue',primary:()=>{},pbg:A};
+    const F=(key,label,ph,multi,full)=>({label,ph,value:s.f[key]||'',set:e=>set(['f',key],e.target.value),multi:!!multi,single:!multi,span:full?'1 / -1':'auto'});
+    const FK=EX?['name','title','location','bio','exp']:['biz','web','industry','desc','contact','loc'];
+    const filled=FK.filter(x=>(s.f[x]||'').trim()).length;
+    if(sel==='profile'){ v.fields=true; v.photo=EX; fields=EX?[F('name','Full name','Your name'),F('title','Professional title','e.g. Senior accountant'),F('location','Location','City, country'),F('bio','Short bio','Two or three sentences',1,1),F('exp','Relevant experience','Summary of your experience',1,1)]:[F('biz','Business name',''),F('web','Website','example.com'),F('industry','Industry',''),F('loc','Business location','City, state'),F('desc','Description','What your business does',1,1),F('contact','Primary contact','Name · email',0,1)]; P.primary=()=>{ if(filled<FK.length){ this.flash('Fill in all fields first'); return; } complete('profile','Profile saved'); }; P.hint=filled+' of '+FK.length+' fields complete'; }
+    if(sel==='skills'){ v.chips=true; const G=[['Finance',['Accounting','Financial analysis','FP&A']],['Legal',['Contract review','Legal research','Compliance']],['Technology',['Software development','Data analysis','QA']],['Operations',['Customer operations','Claims','HR policy']]];
+      chipGroups=G.map(([t,o])=>({title:t,opts:o.map(x=>Object.assign({label:x,go:()=>toggleIn('skills',x)},chip(s.skills.indexOf(x)>-1)))})).concat([{title:'Years of experience',opts:['1–3 years','3–5 years','5–10 years','10+ years'].map(x=>Object.assign({label:x,go:()=>this.setState({years:x})},chip(s.years===x)))},{title:'Tools you use',opts:['Excel','SQL','Python','NetSuite','Ironclad','Zendesk'].map(x=>Object.assign({label:x,go:()=>toggleIn('tools',x)},chip(s.tools.indexOf(x)>-1)))}]);
+      P.hint=s.skills.length+' skills selected'; P.primary=()=>{ if(!s.skills.length||!s.years){ this.flash('Pick at least one skill and your experience'); return; } complete('skills','Skills updated'); }; }
+    if(sel==='services'){ v.chips=true; chipGroups=[{title:'Services you provide',opts:['Contract review','Accounting','Bookkeeping','Customer support','Marketing','Software development','HR & policy','Data analysis'].map(x=>Object.assign({label:x,go:()=>toggleIn('services',x)},chip(s.services.indexOf(x)>-1)))}]; P.hint=s.services.length+' services selected'; P.primary=()=>{ if(!s.services.length){ this.flash('Pick at least one service'); return; } complete('services','Services saved'); }; }
+    if(sel==='experience'){ v.exp=true; P.hint=s.expList.length+' role'+(s.expList.length===1?'':'s')+' added'; P.primary=()=>{ if(!s.expList.length){ this.flash('Add at least one role'); return; } complete('experience','Experience saved'); }; }
+    if(sel==='verification'){ v.rows=true;
+      const SC={Verified:['#15803D','#ECFDF3'],'Needs attention':['#B91C1C','#FEF2F2'],Submitted:['#5B6FA3','#F4F6FB'],'In progress':['#B45309','#FFFBEB'],'Not started':['#71717A','#F4F4F5']};
+      const row=(label,note,st,act,actLabel,fix)=>Object.assign({label,note,status:st,sc:SC[st][0],sbg:SC[st][1],hasAct:!!act,act:act||(()=>{}),actLabel:actLabel||'',hasFix:!!fix,bd:st==='Needs attention'?'#FECACA':'#E4E4E7',bg:st==='Needs attention'?'#FFFBFB':'#FFFFFF'},fix||{});
+      if(EX){ const sub=key=>()=>{ set(['ver',key],'Submitted'); this.later(()=>set(['ver',key],'Verified'),1600); this.flash('Submitted for verification'); };
+        rows=[row('Identity verification','Government ID and a live selfie.',s.ver.id,s.ver.id==='Verified'?null:sub('id'),'Start'),row('Professional verification','License, bar membership or employer reference.',s.ver.pro,s.ver.pro==='Verified'||s.ver.pro==='Submitted'?null:sub('pro'),'Submit')]; }
+      else { const ni=s.bver.info==='Needs attention';
+        rows=[row('Business information',ni?'We couldn\'t match your registered business name. Enter it exactly as registered.':'Registered name and tax ID match public records.',s.bver.info,null,'',ni?{fixVal:s.bfix,fixPh:'Registered legal name, e.g. Ned Partners LLC',setFix:e=>this.setState({bfix:e.target.value}),submitFix:()=>{ if(!s.bfix.trim()) return; set(['bver','info'],'Submitted'); this.later(()=>set(['bver','info'],'Verified'),1600); this.flash('Resubmitted'); }}:null),row('Website verification','DNS record confirmed for '+(s.f.web||'your domain')+'.',s.bver.web),row('Contact verification','Email and phone confirmed.',s.bver.contact)]; }
+      P.hint=this.isDone('verification')?'All checks passed':'Verification usually completes within minutes';P.primaryLabel='Continue';P.primary=()=>{ if(!this.isDone('verification')){ this.flash('Verification isn\'t complete yet'); return; } this.setState({sel:(reqSteps.find(x=>!this.isDone(x.id))||{id:'ready'}).id}); }; }
+    if(sel==='customers'){ v.split=true; v.toggles=true; const T=(key,label,sub)=>{const on=s.cust[key];return {label,sub,state:on?'On':'Off',sc:on?A:'#71717A',j:on?'flex-end':'flex-start',tb:on?A:'#D4D4D8',go:()=>set(['cust',key],!on)};};
+      toggles=[T('leads','Receive PowerHouse leads','New customers matched to your services.'),T('referrals','Accept network referrals','Customers referred by other partners.'),T('existing','Bring existing customers','Invite customers you already serve.')]; P.primaryLabel='Confirm setup'; P.primary=()=>complete('customers','Customer setup confirmed'); }
+    if(sel==='integrations'){ v.rows=true; const SC={Connected:['#15803D','#ECFDF3'],'Connecting…':['#B45309','#FFFBEB'],'Not connected':['#71717A','#F4F4F5']};
+      rows=[['email','Email','Gmail / Outlook · customer threads',1],['calendar','Calendar','Meetings and call recordings',0],['crm','CRM','HubSpot / Salesforce · customer records',0],['files','File storage','Google Drive / Dropbox · project files',1]].map(([key,label,note,req])=>{const st=s.ints[key];return {label:label+(req?' · required':''),note,status:st,sc:SC[st][0],sbg:SC[st][1],hasAct:st!=='Connecting…',actLabel:st==='Connected'?'Disconnect':'Connect',act:()=>{ if(st==='Connected'){ set(['ints',key],'Not connected'); return; } set(['ints',key],'Connecting…'); this.later(()=>{ set(['ints',key],'Connected'); this.flash(label+' connected'); },1200); },hasFix:false,bd:'#E4E4E7',bg:'#FFFFFF'};});
+      P.hint='Email and file storage are required'; P.primaryLabel='Continue'; P.primary=()=>{ if(!this.isDone('integrations')){ this.flash('Connect email and file storage first'); return; } this.setState({sel:(reqSteps.find(x=>!this.isDone(x.id))||{id:'ready'}).id}); }; }
+    if(sel==='permissions'){ v.toggles=true; const T=(key,label,sub)=>{const on=s.perms[key];return {label,sub,state:on?'Allowed':'Not enabled',sc:on?'#15803D':'#71717A',j:on?'flex-end':'flex-start',tb:on?A:'#D4D4D8',go:()=>set(['perms',key],!on)};};
+      toggles=[T('comms','Customer communications','Emails and messages, used for intake and updates.'),T('files','Project files','Documents customers share for the work.'),T('calls','Call recordings','Transcribed to capture requirements.'),T('improve','Improve the network','Anonymized work, only where customers also allow it.')]; P.primary=()=>complete('permissions','Permissions saved'); }
+    const AG=AGR[k];
+    const agr={name:AG.name,sections:AG.sections.map(([h,t])=>({h,t})),showDoc:s.agr.open||!!s.agr.on,canAccept:!s.agr.on&&s.agr.open,isSigned:!!s.agr.on,signedOn:s.agr.on,signer:EX?(s.f.name||'You'):(s.f.contact||'You').split(' · ')[0],mark:s.agr.agree?'✓':'',cbBg:s.agr.agree?A:'#FFFFFF',cbBd:s.agr.agree?A:'#D4D4D8',toggleAgree:()=>set(['agr','agree'],!s.agr.agree)};
+    if(sel==='agreement'){ v.agreement=true; if(s.agr.on){ P.hint='Signed copy stored in your account'; P.primaryLabel='Continue'; P.primary=()=>this.setState({sel:(reqSteps.find(x=>!this.isDone(x.id))||{id:'ready'}).id}); }
+      else if(!s.agr.open){ P.hint='About 4 minutes to read'; P.primaryLabel='Review agreement'; P.primary=()=>set(['agr','open'],true); }
+      else { P.hint='Accepting is legally binding'; P.primaryLabel='Accept agreement'; P.pbg=s.agr.agree?A:'#C4C4CC'; P.primary=()=>{ if(!s.agr.agree){ this.flash('Tick the box to agree first'); return; } set(['agr','on'],TODAY); this.later(()=>this.setState({sel:(STEPS[k].map(x=>x[0]).filter(id=>id!=='ready').find(id=>STEPS[k].find(x=>x[0]===id)[3]&&!this.isDone(id))||'ready')}),50); this.flash('Agreement accepted'); }; } }
+    const tr=s.train||{};
+    if(sel==='training'){ v.training=true; P.hint=tr.result==='pass'?'Training completed':'1 sample task remaining'; P.primaryLabel=tr.result==='pass'?'Continue':'Submit answer';
+      P.primary=()=>{ if(tr.result==='pass'){ this.setState({sel:'ready'}); return; } if(!tr.verdict||!(tr.why||'').trim()){ this.flash('Choose an answer and explain why'); return; } const ok=tr.verdict==='Incorrect'&&/37|0\.37|470|wrong|incorrect|miscalc/i.test(tr.why); set(['train','result'],ok?'pass':'retry'); this.flash(ok?'Training completed':'Needs another attempt'); };
+      if(tr.result==='retry'){ P.hasSecondary=true; P.secondaryLabel='Try again'; P.secondary=()=>this.setState({train:{verdict:'',why:'',result:''}}); } }
+    if(sel==='ready'){ v.ready=true; P.hint=allDone?'All required steps complete':'Finish the required steps to unlock this'; P.primaryLabel=EX?'Browse available tasks':'Go to Business Partner dashboard'; P.pbg=allDone?A:'#C4C4CC'; P.primary=()=>{ if(!allDone){ this.flash('Complete: '+cur.label); this.setState({sel:cur.id}); return; } if(this.props.onExit) this.props.onExit(); }; }
+    if(sel==='portfolio'){ v.fields=true; fields=[{label:'Portfolio link',ph:'https://…',value:s.opt.portfolio,set:e=>set(['opt','portfolio'],e.target.value),multi:false,single:true,span:'1 / -1'}]; P.primary=()=>{ this.flash(s.opt.portfolio?'Portfolio saved':'Add a link first'); }; P.primaryLabel='Save'; }
+    if(sel==='extra'){ v.chips=true; chipGroups=[{title:'Additional expertise',opts:['Tax','Insurance claims','Procurement','Privacy / GDPR','Revenue recognition'].map(x=>Object.assign({label:x,go:()=>this.setState(st=>({opt:Object.assign({},st.opt,{extra:st.opt.extra.indexOf(x)>-1?st.opt.extra.filter(y=>y!==x):st.opt.extra.concat([x])})}))},chip(s.opt.extra.indexOf(x)>-1)))}]; P.primaryLabel='Save'; P.primary=()=>this.flash('Expertise saved'); }
+    if(sel==='logo'){ v.fields=true; fields=[{label:'Logo URL or file name',ph:'meridian-logo.svg',value:s.opt.logo,set:e=>set(['opt','logo'],e.target.value),multi:false,single:true,span:'1 / -1'}]; P.primaryLabel='Save'; P.primary=()=>this.flash(s.opt.logo?'Brand saved':'Add a logo first'); }
+    if(sel==='team'){ v.fields=true; fields=[{label:'Teammate email',ph:'name@company.com',value:s.f.invite||'',set:e=>set(['f','invite'],e.target.value),multi:false,single:true,span:'1 / -1'}]; P.hint=(s.opt.team||[]).length+' invited'; P.primaryLabel='Send invite'; P.primary=()=>{ const e=(s.f.invite||'').trim(); if(!e) return; this.setState(st=>({opt:Object.assign({},st.opt,{team:(st.opt.team||[]).concat([e])}),f:Object.assign({},st.f,{invite:''})})); this.flash('Invite sent to '+e); }; }
+    const selStep=steps.find(x=>x.id===sel)||cur, sst=statusOf(selStep);
+    P=Object.assign({kicker:(selStep.req?'Required':'Optional')+' · step '+(steps.filter(x=>x.req===selStep.req).findIndex(x=>x.id===sel)+1),label:selStep.label,desc:selStep.desc||(allDone?'Everything is in place.':'Unlocks when all required steps are complete.'),status:sst[0],sc:sst[1],sbg:sst[2]},P);
+    const readyList=reqSteps.map(x=>({label:x.label,icon:this.isDone(x.id)?'✓':'○',c:this.isDone(x.id)?'#15803D':'#A1A1AA'}));
+    const exp=s.expDraft||{co:'',role:'',yrs:''};
+    const trOpt=['Correct','Incorrect'].map(x=>Object.assign({label:x,go:()=>set(['train','verdict'],x)},chip(tr.verdict===x)));
+    const res=tr.result==='pass'?{title:'Training completed.',text:'Right — the margin is ($1.27M − $0.80M) ÷ $1.27M = 37%, not 42%.',bg:'#ECFDF3',fg:'#15803D'}:tr.result==='retry'?{title:'Needs another attempt.',text:'Re-check the calculation against the source numbers and explain the correct figure.',bg:'#FEF2F2',fg:'#B91C1C'}:{};
+    return {A,AL,title:EX?'EXPERT ONBOARDING':'BUSINESS ONBOARDING',pct,pctW:pct+'%',countLabel:doneN+' of '+reqSteps.length+' required steps complete',
+      curEyebrow:allDone?'ALL SET':'CURRENT STEP',curTitle:allDone?(EX?'You\'re ready to work':'Your business is ready'):cur.label,curText:CURTXT[cur.id]||'',curCta:allDone?(EX?'Browse available tasks':'Go to dashboard'):(this.isDone(cur.id)?'Review':'Continue '+cur.label.toLowerCase()),goCurrent:()=>{ if(allDone&&this.props.onExit){ this.props.onExit(); return; } this.setState({sel:cur.id}); },
+      hasBlocker:!!blk,blocker:blk||{},groups,p:P,v,fields,fieldPctW:Math.round(filled/FK.length*100)+'%',fieldPctLabel:'Profile '+Math.round(filled/FK.length*100)+'% complete',
+      initials:(s.f.name||'?').split(' ').map(w=>w[0]).join('').slice(0,2),photoLabel:s.photo?'✓ '+s.photo:'Upload photo',setPhoto:e=>{const fl=e.target.files&&e.target.files[0]; if(fl) this.setState({photo:fl.name});},
+      chipGroups,expList:s.expList.map((x,i)=>Object.assign({},x,{remove:()=>this.setState(st=>({expList:st.expList.filter((y,j)=>j!==i)}))})),
+      expFields:[['co','Company / organization'],['role','Role'],['yrs','Years, e.g. 2019–2025']].map(([key,ph])=>({ph,value:exp[key]||'',set:e=>set(['expDraft',key],e.target.value)})),
+      addExp:()=>{ if(!(exp.co||'').trim()||!(exp.role||'').trim()){ this.flash('Add a company and role'); return; } this.setState(st=>({expList:st.expList.concat([st.expDraft]),expDraft:{co:'',role:'',yrs:''}})); },
+      resumeLabel:s.resume?'✓ '+s.resume:'Upload resume',setResume:e=>{const fl=e.target.files&&e.target.files[0]; if(fl) this.setState({resume:fl.name});},
+      rows,toggles,youHandle:['Customer relationships','Important decisions','Customer communication','Exceptions'],phHandle:['Intake','Task creation','Routing','AI execution','Expert coordination','Delivery workflow'],
+      agr,lessons:['Review AI outputs','Identify errors','Use task-specific rubrics','Verify AI work','Provide evidence','Make localized corrections','Submit review findings'],
+      trainOpts:trOpt,trainWhy:tr.why||'',setTrainWhy:e=>set(['train','why'],e.target.value),trainHasResult:!!tr.result,trainRes:res,
+      readyList,readyText:allDone?(EX?'Your first tasks are now available.':'You\'re ready to receive work.'):'Complete the remaining required steps to unlock work.',
+      reset:()=>{ try{ localStorage.removeItem('ph-onb-'+k); }catch(e){} this.setState(Object.assign(JSON.parse(JSON.stringify(SEED[k])),{sel:null})); this.flash('Demo progress reset'); },
+      hasToast:!!s.toast,toast:s.toast||''};
+  }
+}
+</script>
+</body>
+</html>
