@@ -367,3 +367,8 @@ Each rail KPI opens a detail view (period Jul 1 – Oct 4): **Customers** (sourc
 - Zulkifle: the nav "Sign in" pop-up offers "Sign up with Google", but never asks whether you are a partner, a business, an expert or a lab.
 - The pop-up is now **"Sign in or sign up"** with an **"I am"** row: *Upwork business · I need work done · Expert · AI lab*. The choice switches the sign-in account, the Google action and the sign-up button underneath.
 - **Sign up with Google** now starts the right chat for every audience with the account answers filled in: Upwork business → the partner chat (name and email verified); I need work done → the customer chat (business, name, email); Expert → the expert chat (name, email; next question is location); AI lab → the lab chat (organization, name, email; next question is the capability goal).
+
+## 47. Hero animations from Shayan's site
+
+- Zulkifle: "Shayan's gpt site has animations, mine is missing that."
+- Replicated from his page, same timings: two dashed **pixel curves** behind the hero (grey tracks; a gold trail travelling along one over 16 s, a silver trail in reverse on the other, offset by 8 s); the headline lines **wipe in** left to right (0.85 s, second line delayed 0.24 s, second line in his lighter grey); the sub-line, the prompt box and the earnings number **fade and scale in** (surface-enter, staggered 0.28 / 0.4 / 0.55 s); the prompt box and the chat composer get his **focus glow**. Respects `prefers-reduced-motion`.

@@ -51,6 +51,24 @@ input,textarea,select{font-family:inherit;font-size:14px}
 @media (max-width:900px){[data-lp="page"] aside{position:static!important}}
 [data-lp="live"]{width:8px;height:8px;border-radius:999px;background:#9ED0B5;box-shadow:0 0 0 0 rgba(158,208,181,.6);animation:lpPulse 1.8s ease-out infinite}
 @keyframes lpPulse{0%{box-shadow:0 0 0 0 rgba(158,208,181,.6)}100%{box-shadow:0 0 0 10px rgba(158,208,181,0)}}
+@keyframes text-wipe{0%{clip-path:inset(0 100% 0 0);transform:translateX(-8px);opacity:.7}100%{clip-path:inset(0);transform:translateX(0);opacity:1}}
+@keyframes surface-enter{0%{opacity:0;transform:scale(.98)}100%{opacity:1;transform:scale(1)}}
+@keyframes pixel-travel{0%{stroke-dashoffset:100}100%{stroke-dashoffset:0}}
+@keyframes message-appear{0%{opacity:0}100%{opacity:1}}
+[data-lp="hero-art"]{position:absolute;z-index:1;pointer-events:none;left:50%;top:300px;transform:translateX(-50%);width:min(1150px,135vw);height:290px;opacity:.7}
+[data-lp="hero-art"] svg{width:100%;height:100%;overflow:visible}
+[data-lp="pixel-track"],[data-lp="pixel-trail"]{fill:none;stroke-linecap:square}
+[data-lp="pixel-track"]{stroke:#383940;stroke-width:1.4;stroke-dasharray:.12 1.88;opacity:.35}
+[data-lp="pixel-trail"]{stroke:#D9A567;stroke-width:2.3;stroke-dasharray:.3 19.7;opacity:.65;animation:pixel-travel 16s linear infinite}
+[data-lp="pixel-trail"][data-two="true"]{stroke:#E5E5E8;animation-delay:-8s;animation-direction:reverse;opacity:.45}
+[data-lp="wipe1"],[data-lp="wipe2"]{display:block;width:fit-content;margin:0 auto;animation:text-wipe .85s cubic-bezier(.16,1,.3,1) .1s both}
+[data-lp="wipe2"]{color:#D4D4D5;animation-delay:.24s}
+[data-lp="enter1"]{animation:surface-enter .6s ease-out .28s both}
+[data-lp="enter2"]{animation:surface-enter .7s cubic-bezier(.16,1,.3,1) .4s both}
+[data-lp="enter3"]{animation:surface-enter .6s ease-out .55s both}
+[data-lp="composer"]{transition:border-color .2s,box-shadow .2s}
+[data-lp="composer"]:focus-within{border-color:#777980!important;box-shadow:0 0 0 3px rgba(255,255,255,.027),0 12px 35px rgba(0,0,0,.157)!important}
+@media (prefers-reduced-motion:reduce){[data-lp="pixel-trail"],[data-lp="wipe1"],[data-lp="wipe2"],[data-lp="enter1"],[data-lp="enter2"],[data-lp="enter3"]{animation:none!important}}
 [data-lp="globe"]::after{content:'';position:absolute;left:50%;bottom:0;width:72%;height:2px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,#D8B586,transparent);opacity:.7}
 @media (max-width:900px){[data-lp="links"]{display:none!important}[data-lp="hero"] h1{font-size:40px!important;letter-spacing:-1.6px!important}}
 /* ===== modern layer · v8 (brand: powerhouse.so) ===== */
@@ -139,16 +157,17 @@ button[style*="text-wrap: pretty"]:hover{box-shadow:0 10px 28px -14px rgba(138,1
   <section data-lp="hero" style="position:relative;overflow:hidden;padding:104px 20px 24px;text-align:center">
     <div style="position:relative;z-index:2;max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px">
       <span style="display:inline-flex;align-items:center;gap:10px;font-size:13px;color:#F7F7F8"><span style="width:14px;height:1px;background:#D9A567"></span>For Upwork businesses</span>
-      <h1 data-lp="pixel" style="margin:0;font-weight:400;font-size:68px;line-height:1.08;letter-spacing:0;color:#F7F7F8">Your expertise.<br>A bigger business.</h1>
-      <p style="margin:0;max-width:560px;font-size:17px;line-height:1.6;color:#BCB7C3">Fortune finds customers and gets the work done.<br>You focus on the relationships and decisions that grow your business.</p>
-      <div style="width:100%;max-width:640px;display:flex;flex-direction:column;gap:14px;align-items:center;padding-top:6px">
-        <div style="width:100%;display:flex;align-items:center;gap:8px;padding:8px 8px 8px 18px;border-radius:14px;border:1px solid #33343A;background:#111216;box-shadow:0 24px 60px -30px rgba(0,0,0,.8)"><input value="{{ lpAsk.value }}" onChange="{{ lpAsk.set }}" onKeyDown="{{ lpAsk.key }}" placeholder="What’s holding you back?" style="flex:1;min-width:0;height:40px;border:0;outline:none;background:transparent;color:#F7F7F8;font-size:15px"></input><button onClick="{{ lpAsk.go }}" title="Get started" style="width:40px;height:40px;border-radius:10px;border:0;background:#FFFFFF;color:#0B0C10;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px">→</button></div>
+      <h1 data-lp="pixel" style="margin:0;font-weight:400;font-size:68px;line-height:1.08;letter-spacing:0;color:#F7F7F8"><span data-lp="wipe1">Your expertise.</span><span data-lp="wipe2">A bigger business.</span></h1>
+      <p data-lp="enter1" style="margin:0;max-width:560px;font-size:17px;line-height:1.6;color:#BCB7C3">Fortune finds customers and gets the work done.<br>You focus on the relationships and decisions that grow your business.</p>
+      <div data-lp="enter2" style="width:100%;max-width:640px;display:flex;flex-direction:column;gap:14px;align-items:center;padding-top:6px">
+        <div data-lp="composer" style="width:100%;display:flex;align-items:center;gap:8px;padding:8px 8px 8px 18px;border-radius:14px;border:1px solid #33343A;background:#111216;box-shadow:0 24px 60px -30px rgba(0,0,0,.8)"><input value="{{ lpAsk.value }}" onChange="{{ lpAsk.set }}" onKeyDown="{{ lpAsk.key }}" placeholder="What’s holding you back?" style="flex:1;min-width:0;height:40px;border:0;outline:none;background:transparent;color:#F7F7F8;font-size:15px"></input><button onClick="{{ lpAsk.go }}" title="Get started" style="width:40px;height:40px;border-radius:10px;border:0;background:#FFFFFF;color:#0B0C10;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px">→</button></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><sc-for list="{{ lpAsk.chips }}" as="c" hint-placeholder-count="3"><button onClick="{{ c.go }}" style="height:34px;padding:0 14px;border-radius:7px;border:1px solid #36373D;background:#111216;color:#D0D0D3;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:10px" style-hover="border-color:#8B8C94;color:#F7F7F8">{{ c.label }} <span style="color:#9A9BA2">↗</span></button></sc-for></div>
         <span style="font-size:12px;color:#8B8C94">On your computer. Directed from your phone or desktop.</span>
         <sc-if value="{{ lpResume.show }}" hint-placeholder-val="{{ false }}"><button onClick="{{ lpResume.go }}" style="border:1px solid #4A3F2A;background:#17181E;cursor:pointer;height:36px;padding:0 16px;border-radius:999px;font-size:13px;font-family:'Manrope',sans-serif;color:#D8B586" style-hover="border-color:#D8B586">{{ lpResume.label }}</button></sc-if>
       </div>
-      <button onClick="{{ lpEarnings.open }}" style="display:flex;align-items:center;gap:14px;margin-top:10px;padding:12px 18px;border-radius:12px;border:1px solid #303035;background:#101114;cursor:pointer;color:#F7F7F8;text-align:left" style-hover="border-color:#D8B586"><span data-lp="live"></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'JetBrains Mono',monospace;font-size:22px;letter-spacing:-.5px">{{ lpEarnings.value }}</span><span style="font-size:12px;color:#8B8C94">{{ lpEarnings.label }}</span></span><span style="font-size:13px;color:#D8B586;margin-left:6px">See the details ↗</span></button>
+      <button data-lp="enter3" onClick="{{ lpEarnings.open }}" style="display:flex;align-items:center;gap:14px;margin-top:10px;padding:12px 18px;border-radius:12px;border:1px solid #303035;background:#101114;cursor:pointer;color:#F7F7F8;text-align:left" style-hover="border-color:#D8B586"><span data-lp="live"></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'JetBrains Mono',monospace;font-size:22px;letter-spacing:-.5px">{{ lpEarnings.value }}</span><span style="font-size:12px;color:#8B8C94">{{ lpEarnings.label }}</span></span><span style="font-size:13px;color:#D8B586;margin-left:6px">See the details ↗</span></button>
     </div>
+    <div data-lp="hero-art" aria-hidden="true"><svg viewBox="0 0 1000 300" focusable="false"><path data-lp="pixel-track" pathLength="100" d="M-120 235C110 70 240 70 460 180S820 240 1110 90"></path><path data-lp="pixel-track" pathLength="100" d="M-80 115C200 250 370 250 570 145S910 35 1100 190"></path><path data-lp="pixel-trail" pathLength="100" d="M-120 235C110 70 240 70 460 180S820 240 1110 90"></path><path data-lp="pixel-trail" data-two="true" pathLength="100" d="M-80 115C200 250 370 250 570 145S910 35 1100 190"></path></svg></div>
     <div style="position:absolute;inset:0;z-index:0;background:radial-gradient(55% 45% at 50% 0%,rgba(216,181,134,.08),rgba(11,12,16,0) 70%)"></div>
   </section>
 
@@ -389,7 +408,7 @@ button[style*="text-wrap: pretty"]:hover{box-shadow:0 10px 28px -14px rgba(138,1
     </div>
     <div style="position:sticky;bottom:0;padding:14px 0 24px;background:linear-gradient(180deg,rgba(11,12,16,0),#0B0C10 28%)">
       <div style="display:flex;flex-direction:column;gap:8px">
-        <sc-if value="{{ sc.c.open }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:8px;padding:8px 8px 8px 18px;border-radius:14px;border:1px solid #33343A;background:#111216;box-shadow:0 24px 60px -30px rgba(0,0,0,.8)"><input value="{{ sc.c.value }}" onChange="{{ sc.c.set }}" onKeyDown="{{ sc.c.key }}" placeholder="{{ sc.c.ph }}" style="flex:1;min-width:0;height:40px;border:0;outline:none;background:transparent;color:#F7F7F8;font-size:15px"></input><button onClick="{{ sc.c.send }}" title="Send" style="width:40px;height:40px;border-radius:10px;border:0;background:#FFFFFF;color:#0B0C10;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px">→</button></div></sc-if>
+        <sc-if value="{{ sc.c.open }}" hint-placeholder-val="{{ true }}"><div data-lp="composer" style="display:flex;align-items:center;gap:8px;padding:8px 8px 8px 18px;border-radius:14px;border:1px solid #33343A;background:#111216;box-shadow:0 24px 60px -30px rgba(0,0,0,.8)"><input value="{{ sc.c.value }}" onChange="{{ sc.c.set }}" onKeyDown="{{ sc.c.key }}" placeholder="{{ sc.c.ph }}" style="flex:1;min-width:0;height:40px;border:0;outline:none;background:transparent;color:#F7F7F8;font-size:15px"></input><button onClick="{{ sc.c.send }}" title="Send" style="width:40px;height:40px;border-radius:10px;border:0;background:#FFFFFF;color:#0B0C10;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px">→</button></div></sc-if>
         <sc-if value="{{ sc.c.locked }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:10px;padding:0 18px;height:56px;border-radius:14px;border:1px dashed #33343A;background:#0E0F13;color:#66636A;font-size:14px"><span style="font-size:13px">🔒</span><span>{{ sc.c.lockText }}</span></div></sc-if>
         <span style="font-size:12px;color:#66636A;min-height:16px">{{ sc.c.hint }}</span>
       </div>
