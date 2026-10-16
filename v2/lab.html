@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>fortune. · Lab console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="fortune.css"></head>
+<body>
+<div class="shell has-panel" data-tabs>
+  <aside class="rail">
+    <a class="brand" href="index.html"><svg class="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg>fortune.</a>
+    <nav class="nav"><a href="#" class="tab" data-tab="stream" aria-current="page" style="border:0;height:36px">Live stream</a><a href="#" class="tab" data-tab="sample" style="border:0;height:36px">Sample inspector</a><a href="#" class="tab" data-tab="buy" style="border:0;height:36px">Bid &amp; commit</a><a href="#" class="tab" data-tab="deliv" style="border:0;height:36px">Deliveries</a></nav>
+    <div class="rail-foot"><div class="row"><span class="avatar avatar-sm" style="background:#5B6FA3">NW</span><div class="col" style="gap:0"><span class="small" style="font-weight:500">Northwind Labs</span><span class="xs muted-3">Priya Raman · research</span></div></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar"><div class="row"><h4>Lab console</h4><span class="live">31,204 expert-corrected tasks today</span></div><div class="row"><button class="btn btn-sm">Schema</button><button class="btn btn-sm btn-primary" data-tab="buy">Place a bid</button></div></div>
+    <div class="page stack-5">
+      <section data-tabpanel="stream">
+        <div class="kpis" style="margin-bottom:20px"><div class="card card-tight kpi"><span class="v">31,204</span><span class="k">Tasks today · paid for by customers</span></div><div class="card card-tight kpi"><span class="v">1.1%</span><span class="k">Defect rate · judge-sampled</span></div><div class="card card-tight kpi"><span class="v">38%</span><span class="k">Software · largest domain</span></div><div class="card card-tight kpi"><span class="v">$6.20</span><span class="k">Current clearing bid · per task</span></div></div>
+        <div class="section-title"><h3>What is being produced right now</h3><div class="row wrap"><button class="chip is-on">All domains</button><button class="chip">Software</button><button class="chip">Legal</button><button class="chip">Finance</button><button class="chip">Operations</button></div></div>
+        <div class="card"><table class="table"><thead><tr><th>Domain</th><th>Task type</th><th>Difficulty</th><th>Harness-checked</th><th class="num">Today</th><th class="num">Available to you</th></tr></thead><tbody>
+          <tr><td>Software · web apps</td><td>Model attempt → expert fix (diff + reason)</td><td>Mixed · 22% hard</td><td>✓ files, tests, terminal</td><td class="num">11,860</td><td class="num">4,120</td></tr>
+          <tr><td>Legal · contracts &amp; employment</td><td>Model draft → attorney corrections</td><td>Mostly medium</td><td>— (documents)</td><td class="num">6,410</td><td class="num">2,980</td></tr>
+          <tr><td>Finance · bookkeeping &amp; close</td><td>Model reconciliation → CPA corrections</td><td>Medium</td><td>✓ spreadsheets</td><td class="num">4,930</td><td class="num">1,710</td></tr>
+          <tr><td>Operations · intake, routing</td><td>Full execution + review</td><td>Easy</td><td>✓ browser</td><td class="num">8,004</td><td class="num">3,300</td></tr>
+        </tbody></table></div>
+        <p class="small muted" style="margin-top:12px">Every row is real work a customer asked for and accepted. "Available to you" excludes tasks already sold exclusively and tasks the customer kept private.</p>
+      </section>
+      <section data-tabpanel="sample" hidden>
+        <div class="row between wrap" style="margin-bottom:14px"><div><h3>Sample · F-20931 · legal · employment · medium</h3><div class="small muted">De-identified · accepted by the customer · judge-sampled and upheld</div></div><div class="row"><button class="btn btn-sm">Previous</button><button class="btn btn-sm">Next</button><button class="btn btn-sm btn-primary">Download JSONL</button></div></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px">
+          <div class="col" style="gap:12px">
+            <div class="card card-tight"><div class="label" style="margin-bottom:6px">Prompt (customer)</div><p class="small">Draft an employment agreement for a part-time designer in [STATE]. 20 hours a week, $45/hour, one-year term, remote.</p></div>
+            <div class="card card-tight"><div class="label" style="margin-bottom:6px">Model attempt · claude-opus-5-5 · 41 s</div><p class="small muted">4-page agreement. Checks flagged 2 issues (classification, break language).</p></div>
+            <div class="card card-tight"><div class="label" style="margin-bottom:6px">Harness checks</div><ul class="checks small"><li><span class="ok">✓</span><span>Inputs fully read · 1 of 1 file parsed</span></li><li><span class="ok">✓</span><span>Output rendered and opened by the customer</span></li><li><span class="ok">✓</span><span>No tool errors · no truncation</span></li></ul><p class="xs muted-3" style="margin-top:6px">So the expert's corrections are about the model's judgment, not a broken run.</p></div>
+          </div>
+          <div class="col" style="gap:12px">
+            <div class="card card-tight"><div class="label" style="margin-bottom:6px">Expert correction · L2 attorney · 9 min 12 s · accepted</div>
+              <div class="diff"><div class="d"><div class="t">§2 classification</div><div class="before">…classified as exempt…</div><div class="after">…non-exempt; overtime at 1.5× under Labor Code §510.</div><div class="why">Reason: salary threshold not met at $45/h part-time.</div></div><div class="d"><div class="t">§4 new clause</div><div class="before">—</div><div class="after">Meal and rest periods per Labor Code §512…</div><div class="why">Reason: required for non-exempt employees.</div></div><div class="d"><div class="t">§9 termination</div><div class="before">…thirty (30) days' notice.</div><div class="after">At will… wages at termination per §201–203.</div><div class="why">Reason: contradicts at-will language in §1.</div></div></div></div>
+            <div class="card card-tight"><div class="label" style="margin-bottom:6px">Record shape</div><pre class="mono xs" style="margin:0;white-space:pre-wrap;color:var(--text-2)">{ id, domain, difficulty, prompt, files[], model:{name, output, checks[]}, harness:{inputs_read, tool_errors}, expert:{level, changes:[{section, before, after, reason}], minutes}, outcome:{accepted, judge:"upheld"}, rights:"standard|exclusive" }</pre></div>
+          </div>
+        </div>
+      </section>
+      <section data-tabpanel="buy" hidden>
+        <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px">
+          <div class="card"><div class="card-head"><h3>Your bid</h3><span class="badge">Labs set the price · tasks go to the best bid</span></div>
+            <div class="stack-4">
+              <div class="field"><span class="label">Domains</span><div class="row wrap"><button class="chip is-on" data-toggle aria-pressed="true">Software · web apps</button><button class="chip is-on" data-toggle aria-pressed="true">Legal · contracts</button><button class="chip" data-toggle>Finance</button><button class="chip" data-toggle>Operations</button></div></div>
+              <div class="field"><span class="label">Difficulty</span><div class="row wrap"><button class="chip" data-toggle>Easy</button><button class="chip is-on" data-toggle aria-pressed="true">Medium</button><button class="chip is-on" data-toggle aria-pressed="true">Hard</button></div></div>
+              <div class="field"><span class="label">Task type</span><div class="row wrap"><button class="chip is-on" data-toggle aria-pressed="true">Expert corrections (diff + reason)</button><button class="chip" data-toggle>Preference pairs</button><button class="chip" data-toggle>Full trajectories with harness</button></div></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px"><div class="field"><span class="label">Bid per task</span><input class="input mono" value="$7.50"></div><div class="field"><span class="label">Tasks per week</span><input class="input mono" value="5,000"></div><div class="field"><span class="label">Rights</span><select class="select"><option>Standard · non-exclusive</option><option>Exclusive · 3×</option></select></div></div>
+              <div class="field"><span class="label">Delivery format</span><div class="row wrap"><button class="chip is-on" data-toggle aria-pressed="true">JSONL (fortune schema)</button><button class="chip" data-toggle>Your schema · we map it</button><button class="chip" data-toggle>RL environment bundle</button></div></div>
+              <div class="row"><button class="btn btn-primary btn-lg" data-toast="Bid placed · fills as tasks clear">Place bid · ~$37,500 / week</button><button class="btn btn-lg">Commit up front · 10% off</button></div>
+            </div></div>
+          <div class="col" style="gap:12px">
+            <div class="card card-tight"><div class="label" style="margin-bottom:8px">Market right now</div><div class="list small"><div class="row between"><span>Clearing bid · medium</span><span class="mono">$6.20</span></div><div class="row between"><span>Clearing bid · hard</span><span class="mono">$14.80</span></div><div class="row between"><span>Exclusive premium</span><span class="mono">3×</span></div><div class="row between"><span>Your fill at $7.50</span><span class="mono">~5,000 / wk</span></div></div></div>
+            <div class="card card-tight"><div class="label" style="margin-bottom:8px">Why this is cheaper</div><p class="small">Customers already paid the expert. You pay for the record, not the labour. Compute is the only cost between you and the task.</p></div>
+            <div class="note">Rights and consent: only tasks where the customer and the expert kept training on are included. Private tasks never appear here.</div>
+          </div>
+        </div>
+      </section>
+      <section data-tabpanel="deliv" hidden>
+        <div class="card"><div class="card-head"><h3>Deliveries</h3><span class="small muted">Last-mile QC runs before every delivery</span></div>
+          <table class="table"><thead><tr><th>Batch</th><th>Domains</th><th class="num">Tasks</th><th>QC</th><th>Format</th><th>Status</th></tr></thead><tbody>
+            <tr><td class="mono">B-0412</td><td>Software, legal</td><td class="num">5,000</td><td><span class="badge badge-mint">Defect 0.9% · judge sample 500</span></td><td>JSONL</td><td><span class="badge badge-mint">Delivered Tue</span></td></tr>
+            <tr><td class="mono">B-0418</td><td>Software</td><td class="num">4,120</td><td><span class="badge badge-amber">QC running · 61%</span></td><td>Your schema</td><td><span class="badge">Thu</span></td></tr>
+            <tr><td class="mono">B-0419</td><td>Legal</td><td class="num">2,980</td><td><span class="badge">Queued</span></td><td>JSONL</td><td><span class="badge">Fri</span></td></tr>
+          </tbody></table></div>
+      </section>
+    </div>
+  </main>
+  <aside class="panel">
+    <div><div class="label" style="margin-bottom:8px">Your account</div><div class="list small"><div class="row between"><span class="muted">Active bids</span><span>2</span></div><div class="row between"><span class="muted">Delivered · 30 days</span><span class="mono">18,400</span></div><div class="row between"><span class="muted">Spend · 30 days</span><span class="mono">$121,900</span></div><div class="row between"><span class="muted">Defect rate · delivered</span><span class="mono">0.9%</span></div></div></div>
+    <div><div class="label" style="margin-bottom:8px">How tasks are made</div><div class="tl"><div><span class="w">1</span><span>A customer asks for real work; the model does it free</span></div><div><span class="w">2</span><span>Checks flag what the model got wrong</span></div><div><span class="w">3</span><span>A named expert fixes it; customer accepts and pays the expert</span></div><div><span class="w">4</span><span>1 in 10 is re-checked by a judge</span></div><div><span class="w">5</span><span>De-identified record enters the stream</span></div></div></div>
+    <div class="note-blue note">Want everything? Exclusive commitments get first access to new domains and a dedicated QC lane.</div>
+  </aside>
+</div>
+<script src="fortune.js"></script>
+</body></html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>fortune. · Ops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="fortune.css"></head>
+<body>
+<div class="shell has-panel" data-tabs>
+  <aside class="rail">
+    <a class="brand" href="index.html"><svg class="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg>fortune.</a>
+    <nav class="nav"><a href="#" class="tab" data-tab="q" aria-current="page" style="border:0;height:36px">Quality <span class="cnt">live</span></a><a href="#" class="tab" data-tab="judge" style="border:0;height:36px">Judge queue <span class="cnt">38</span></a><a href="#" class="tab" data-tab="route" style="border:0;height:36px">Routing rules</a><a href="#" class="tab" data-tab="pay" style="border:0;height:36px">Payouts</a><a href="#" class="tab" data-tab="inc" style="border:0;height:36px">Incoming chats <span class="cnt">126</span></a></nav>
+    <div class="rail-foot"><div class="row"><span class="avatar avatar-sm" style="background:#8A6B3F">AV</span><div class="col" style="gap:0"><span class="small" style="font-weight:500">Anthony Vong</span><span class="xs muted-3">Product &amp; ops · SF</span></div></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar"><div class="row"><h4>Ops · the machine</h4><span class="small muted">20 people · 31,204 tasks today · 4,820 experts online</span></div><div class="row"><button class="btn btn-sm">Export</button></div></div>
+    <div class="page stack-5">
+      <section data-tabpanel="q">
+        <div class="kpis" style="margin-bottom:20px"><div class="card card-tight kpi"><span class="v">1.1%</span><span class="k">Defect rate · judge-sampled · target ≤ 1%</span></div><div class="card card-tight kpi"><span class="v">7.4 min</span><span class="k">Median review turnaround</span></div><div class="card card-tight kpi"><span class="v">0.6%</span><span class="k">Missed windows</span></div><div class="card card-tight kpi"><span class="v">$0</span><span class="k">Margin on expert pay · by design</span></div></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px">
+          <div class="card"><div class="card-head"><h3>Defect rate by domain · 7 days</h3><span class="small muted">A defect is a delivered task a judge overturned</span></div>
+            <table class="table"><thead><tr><th>Domain</th><th class="num">Tasks</th><th class="num">Sampled</th><th class="num">Overturned</th><th>Defect</th><th>Action</th></tr></thead><tbody>
+              <tr><td>Software · web apps</td><td class="num">71,200</td><td class="num">7,120</td><td class="num">64</td><td><span class="badge badge-mint">0.9%</span></td><td class="small muted">—</td></tr>
+              <tr><td>Legal · employment</td><td class="num">22,900</td><td class="num">2,290</td><td class="num">41</td><td><span class="badge badge-amber">1.8%</span></td><td><button class="btn btn-sm">Raise sample to 20%</button></td></tr>
+              <tr><td>Finance · close</td><td class="num">29,800</td><td class="num">2,980</td><td class="num">22</td><td><span class="badge badge-mint">0.7%</span></td><td class="small muted">—</td></tr>
+              <tr><td>Operations</td><td class="num">48,000</td><td class="num">4,800</td><td class="num">70</td><td><span class="badge badge-amber">1.5%</span></td><td><button class="btn btn-sm">Tighten L1 routing</button></td></tr>
+            </tbody></table></div>
+          <div class="col" style="gap:12px">
+            <div class="card card-tight"><div class="label" style="margin-bottom:8px">Automatic consequences this week</div><div class="list small"><div class="row between"><span>Experts moved down a level</span><span class="mono">212</span></div><div class="row between"><span>Experts moved up</span><span class="mono">340</span></div><div class="row between"><span>Paused for 3 missed windows</span><span class="mono">58</span></div><div class="row between"><span>Bounties paid for errors found</span><span class="mono">$4,110</span></div></div><p class="xs muted-3" style="margin-top:6px">No human in the loop for any of these; software applies the rules.</p></div>
+            <div class="card card-tight"><div class="label" style="margin-bottom:8px">Where humans still step in</div><ul class="checks small"><li><span class="warn">!</span><span>Judge disagreements (two judges split) · 38 open</span></li><li><span class="warn">!</span><span>New domain without a rubric · 1 (healthcare intake)</span></li><li><span class="ok">✓</span><span>Everything else runs itself</span></li></ul></div>
+          </div>
+        </div>
+      </section>
+      <section data-tabpanel="judge" hidden>
+        <div class="section-title"><h3>Judge queue · two judges disagreed, you decide</h3><span class="small muted">Judges are L2+ experts paid per check and per error found</span></div>
+        <div class="col" style="gap:10px">
+          <div class="task"><div><div class="t">Severance letter · NY · delivered by Jamal T. (L1)</div><div class="m">Judge A: upheld · Judge B: overturned (release language too broad) · customer accepted · $39</div></div><div class="row"><button class="btn btn-sm">Uphold</button><button class="btn btn-sm btn-danger">Overturn · refund + bounty</button></div></div>
+          <div class="task"><div><div class="t">Stripe webhook fix · SaaS billing · delivered by Jordan C. (L2)</div><div class="m">Judge A: overturned (idempotency key missing) · Judge B: upheld · tests passed · $140</div></div><div class="row"><button class="btn btn-sm">Uphold</button><button class="btn btn-sm btn-danger">Overturn · refund + bounty</button></div></div>
+          <div class="task"><div><div class="t">Month-end reconciliation · delivered by Mei L. (L2)</div><div class="m">Judge A: overturned (one unmatched entry) · Judge B: upheld (immaterial) · $85</div></div><div class="row"><button class="btn btn-sm">Uphold</button><button class="btn btn-sm btn-danger">Overturn · refund + bounty</button></div></div>
+        </div>
+        <p class="small muted" style="margin-top:14px">Your decision writes the rubric: the same pattern is auto-judged next time.</p>
+      </section>
+      <section data-tabpanel="route" hidden>
+        <div class="card"><div class="card-head"><h3>Routing rules</h3><span class="small muted">The layers Shayan described: break work down, route by level, short windows</span></div>
+          <table class="table"><thead><tr><th>Layer</th><th>Who</th><th>Window</th><th>Pay basis</th><th>On miss</th></tr></thead><tbody>
+            <tr><td>Review · fix what's wrong</td><td>L2+ in domain · history-ranked</td><td class="mono">15 min</td><td>Expert's rate × task size</td><td>Next expert · reliability −1</td></tr>
+            <tr><td>Full execution</td><td>L2+ · recent acceptance ≥ 95%</td><td class="mono">60 min</td><td>Expert's rate × scope</td><td>Next expert · reliability −1</td></tr>
+            <tr><td>Simple sub-tasks (formatting, data entry, checks)</td><td>L1 · any region · $2–5/h builds reputation</td><td class="mono">10 min</td><td>Per task</td><td>Next · 3 misses = pause</td></tr>
+            <tr><td>Judge check</td><td>L2+ not involved in the task</td><td class="mono">5 min</td><td>Per check + bounty per error</td><td>Reassign</td></tr>
+          </tbody></table></div>
+      </section>
+      <section data-tabpanel="pay" hidden>
+        <div class="kpis" style="margin-bottom:20px"><div class="card card-tight kpi"><span class="v">$212,400</span><span class="k">Paid to experts this week · 100% passed through</span></div><div class="card card-tight kpi"><span class="v">$0</span><span class="k">Platform margin on expert pay</span></div><div class="card card-tight kpi"><span class="v">$38,900</span><span class="k">Compute this week</span></div><div class="card card-tight kpi"><span class="v">$486,000</span><span class="k">Data revenue this week · 3 labs</span></div></div>
+        <div class="card"><div class="card-head"><h3>Payouts</h3><span class="small muted">Weekly · Wise, Payoneer, bank · 1099 / W-8 collected before first payout</span></div><table class="table"><thead><tr><th>Batch</th><th class="num">Experts</th><th class="num">Amount</th><th>Status</th></tr></thead><tbody><tr><td class="mono">P-1042 · Fri</td><td class="num">4,120</td><td class="num">$212,400</td><td><span class="badge badge-amber">Scheduled</span></td></tr><tr><td class="mono">P-1041</td><td class="num">3,980</td><td class="num">$198,100</td><td><span class="badge badge-mint">Paid</span></td></tr></tbody></table></div>
+      </section>
+      <section data-tabpanel="inc" hidden>
+        <div class="section-title"><h3>Incoming chats · everyone who started and where they stopped</h3><button class="btn btn-sm">Email all who stopped at the expert offer</button></div>
+        <div class="card"><table class="table"><thead><tr><th>Who</th><th>Asked for</th><th>Stopped at</th><th>Last seen</th><th></th></tr></thead><tbody>
+          <tr><td>gill@alvandilaw.com</td><td>Employment agreement</td><td><span class="badge badge-mint">Accepted · paid</span></td><td class="mono">11 min</td><td></td></tr>
+          <tr><td>ned@nedpartners.com</td><td>Booking API bug</td><td><span class="badge badge-amber">Expert offer shown</span></td><td class="mono">2 h</td><td><button class="btn btn-sm" data-toast="Resume link sent">Email a resume link</button></td></tr>
+          <tr><td>anonymous · 7f3a</td><td>Vendor contract review</td><td><span class="badge">Model draft</span></td><td class="mono">6 h</td><td><span class="small muted">no email yet</span></td></tr>
+          <tr><td>priya@northwindlabs.ai</td><td>Lab: bid on software</td><td><span class="badge badge-amber">Bid form open</span></td><td class="mono">1 d</td><td><button class="btn btn-sm" data-toast="Marked contacted">Mark contacted</button></td></tr>
+        </tbody></table></div>
+      </section>
+    </div>
+  </main>
+  <aside class="panel">
+    <div><div class="label" style="margin-bottom:8px">Right now</div><div class="list small"><div class="row between"><span class="muted">Experts online</span><span class="mono">4,820</span></div><div class="row between"><span class="muted">Open tasks</span><span class="mono">1,140</span></div><div class="row between"><span class="muted">Median wait</span><span class="mono">4 min</span></div><div class="row between"><span class="muted">Customers active</span><span class="mono">19,300</span></div></div></div>
+    <div class="note-amber note">Legal · employment defect rate is above 1%. Suggested: raise the judge sample to 20% and require L2 for California tasks.</div>
+    <div><div class="label" style="margin-bottom:8px">Team</div><div class="list small"><div>Anthony · product &amp; ops</div><div>Morgan · GTM · lab contracts</div><div>Gail · expert network</div><div>Hope · onboarding specs</div><div>Engineering · 50–60 offshore</div></div></div>
+  </aside>
+</div>
+<script src="fortune.js"></script>
+</body></html>
