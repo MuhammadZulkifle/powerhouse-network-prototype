@@ -7,94 +7,97 @@
     <a class="brand" href="index.html"><svg class="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg>fortune.</a>
     <button class="btn btn-primary btn-block" data-go="task:s1" data-toast="New task">New task <span class="k">⌘N</span></button>
     <nav class="nav" aria-label="Tasks">
-      <a href="#" aria-current="page">Employment agreement <span class="cnt">now</span></a>
-      <a href="#">Booking API double-booking <span class="cnt">2h</span></a>
-      <a href="#">Q3 board pack <span class="cnt">Mon</span></a>
-      <a href="#">Vendor NDA review <span class="cnt">Fri</span></a>
+      <a href="#" aria-current="page">Double-booking bug · intake-app <span class="cnt">now</span></a>
+      <a href="#">Stripe webhooks · billing <span class="cnt">2h</span></a>
+      <a href="#">Employment agreement · CA <span class="cnt">Mon</span></a>
+      <a href="#">Q3 board pack <span class="cnt">Fri</span></a>
     </nav>
     <div class="rail-foot">
-      <div class="card card-tight col"><span class="label">Free plan</span><span class="small">Models are free. You pay only when you accept an expert's work.</span><a href="#" class="small" style="color:var(--gold);font-weight:500">Receipts →</a></div>
-      <div class="row"><span class="avatar slate avatar-sm">G</span><div class="col" style="gap:0"><span class="small" style="font-weight:500">Gill · Alvandi Law Group</span><span class="xs muted-3">gill@alvandilaw.com</span></div></div>
+      <div class="card card-tight col"><span class="label">Connected</span><span class="small row"><span class="live">fortune extension · Chrome</span></span><span class="xs muted-3">Runs on your computer. Repos: intake-app, billing. Change what it may touch in Settings.</span></div>
+      <div class="row"><span class="avatar slate avatar-sm">NP</span><div class="col" style="gap:0"><span class="small" style="font-weight:500">Ned · Ned Partners</span><span class="xs muted-3">ned@nedpartners.com</span></div></div>
     </div>
   </aside>
 
   <main class="main">
-    <div class="topbar"><div class="row"><h4>Employment agreement</h4><span class="badge" data-group="task" data-scene="s1">Draft</span><span class="badge badge-blue" data-group="task" data-scene="s2" hidden>Model draft ready</span><span class="badge badge-gold" data-group="task" data-scene="s3" hidden>Sana is reviewing</span><span class="badge badge-amber" data-group="task" data-scene="s4" hidden>Review ready · accept?</span><span class="badge badge-mint" data-group="task" data-scene="s5" hidden>Done · paid $49</span></div>
-      <div class="row"><div class="tabs" role="tablist" style="border:0"><button class="tab" data-scene-tab="s1" data-group="task" data-go="task:s1" aria-selected="true">1 Ask</button><button class="tab" data-scene-tab="s2" data-group="task" data-go="task:s2">2 Draft</button><button class="tab" data-scene-tab="s3" data-group="task" data-go="task:s3">3 Expert</button><button class="tab" data-scene-tab="s4" data-group="task" data-go="task:s4">4 Changes</button><button class="tab" data-scene-tab="s5" data-group="task" data-go="task:s5">5 Done</button></div><button class="btn btn-sm">Share</button></div></div>
+    <div class="topbar"><div class="row"><h4>Double-booking bug · intake-app</h4><span class="badge" data-group="task" data-scene="s1">New</span><span class="badge badge-blue" data-group="task" data-scene="s2" hidden>Reproduced · fix drafted</span><span class="badge badge-gold" data-group="task" data-scene="s3" hidden>Jordan supervising</span><span class="badge badge-amber" data-group="task" data-scene="s4" hidden>PR ready · accept?</span><span class="badge badge-mint" data-group="task" data-scene="s5" hidden>Merged · paid $60</span></div>
+      <div class="row"><div class="tabs" role="tablist" style="border:0"><button class="tab" data-scene-tab="s1" data-group="task" data-go="task:s1" aria-selected="true">1 Ask</button><button class="tab" data-scene-tab="s2" data-group="task" data-go="task:s2">2 AI works</button><button class="tab" data-scene-tab="s3" data-group="task" data-go="task:s3">3 Supervise</button><button class="tab" data-scene-tab="s4" data-group="task" data-go="task:s4">4 Changes</button><button class="tab" data-scene-tab="s5" data-group="task" data-go="task:s5">5 Done</button></div><button class="btn btn-sm">Share</button></div></div>
 
     <div class="thread">
-      <!-- scene 1: ask -->
+      <!-- s1 ask -->
       <div data-group="task" data-scene="s1" data-scene-init="s1">
         <div class="col" style="gap:18px">
-          <div class="msg"><span class="avatar gold">✦</span><div class="body"><div class="who">fortune</div><p>What do you need done? Describe it the way you would to a colleague. I'll draft it with the model for free; if an expert should check it, I'll say so.</p></div></div>
-          <div class="row wrap" style="padding-left:44px"><button class="chip" data-go="task:s2">Draft an employment agreement</button><button class="chip" data-go="task:s2">Review a vendor contract</button><button class="chip" data-go="task:s2">Fix a bug in my app</button><button class="chip" data-go="task:s2">Reconcile last month's books</button></div>
+          <div class="msg"><span class="avatar gold">✦</span><div class="body"><div class="who">fortune</div><p>What do you need done? I work on your computer through the fortune extension, for free. You can supervise me yourself, or one of our experts can.</p></div></div>
+          <div class="row wrap" style="padding-left:44px"><button class="chip" data-go="task:s2">Fix the double-booking bug in intake-app</button><button class="chip" data-go="task:s2">Add Stripe webhooks to billing</button><button class="chip" data-go="task:s2">Draft an employment agreement</button><button class="chip" data-go="task:s2">Close last month's books</button></div>
         </div>
       </div>
-      <!-- scene 2: model draft + offer -->
+      <!-- s2 AI works + the choice -->
       <div data-group="task" data-scene="s2" hidden>
         <div class="col" style="gap:18px">
-          <div class="msg msg-user"><div class="bubble">Draft an employment agreement for a part-time designer in California. 20 hours a week, $45/hour, one-year term, remote.</div></div>
-          <div class="msg"><span class="avatar gold">✦</span><div class="body"><div class="who">fortune · model draft · 41 s</div>
-            <div class="doc"><div class="doc-head"><span class="row"><b>Employment Agreement · Part-time Designer</b><span class="badge">DOCX · 4 pages</span></span><span class="row"><button class="btn btn-sm btn-ghost">Open</button><button class="btn btn-sm btn-ghost">Download</button></span></div>
-              <div class="doc-body"><h4>1. Position and duties</h4><p>The Company employs the Employee as a part-time Product Designer, working remotely, for approximately twenty (20) hours per week…</p><h4>2. Compensation</h4><p>The Company shall pay the Employee $45.00 per hour, payable bi-weekly. The Employee is classified as exempt…</p><h4>3. Term</h4><p>This Agreement begins on the Start Date and continues for twelve (12) months unless terminated earlier under Section 9…</p><p class="muted-3 small" style="margin-top:8px">+ 8 more sections</p></div></div>
-            <div class="card card-tight"><div class="label" style="margin-bottom:8px">Checks on the draft</div><ul class="checks"><li><span class="ok">✓</span><span>Governing law set to California · at-will language present</span></li><li><span class="ok">✓</span><span>Hours, rate and term match your request</span></li><li><span class="warn">!</span><span><b>Classification</b>: a $45/hour part-time role is normally <i>non-exempt</i> in California; the draft says exempt.</span></li><li><span class="warn">!</span><span><b>Meal and rest breaks</b>: California requires break language for non-exempt employees; none in the draft.</span></li></ul></div>
+          <div class="msg msg-user"><div class="bubble">Fix the double-booking bug in intake-app: two clients can book the same slot. Repo is connected. Tests must pass.</div></div>
+          <div class="msg"><span class="avatar gold">✦</span><div class="body"><div class="who">fortune · working on your machine · intake-app · 8 min 40 s</div>
+            <div class="doc"><div class="doc-head"><span class="row"><b>Session · intake-app</b><span class="badge">VS Code · terminal · localhost</span></span><span class="row"><button class="btn btn-sm btn-ghost">Watch replay</button><button class="btn btn-sm btn-ghost">Open repo</button></span></div>
+              <div class="tl" style="padding:4px 12px"><div><span class="w">00:41</span><span>Ran the existing suite · <span class="ok">27 passed</span></span></div><div><span class="w">02:10</span><span>Wrote a failing test: two concurrent bookings for the same slot both return 201</span></div><div><span class="w">04:20</span><span>Reproduced · <span class="bad">1 failed</span> · countBookings → 2</span></div><div><span class="w">07:55</span><span>Drafted a fix: in-process mutex around <span class="mono">createBooking</span> · test passes locally</span></div><div><span class="w">08:40</span><span class="warn">Stopped at a decision point. See the checks.</span></div></div></div>
+            <div class="card card-tight"><div class="label" style="margin-bottom:8px">Checks on the draft fix</div><ul class="checks"><li><span class="ok">✓</span><span>Bug reproduced with a test · 27 existing tests still pass</span></li><li><span class="ok">✓</span><span>No files touched outside <span class="mono">services/bookings</span></span></li><li><span class="warn">!</span><span><b>Approach</b>: an in-process mutex only protects one server instance; production runs two. The bug returns under load.</span></li><li><span class="warn">!</span><span><b>Database</b>: nothing stops a duplicate at the data layer; a constraint would.</span></li></ul></div>
             <div class="offer">
-              <div class="who"><span class="avatar avatar-lg violet">SQ</span><div><div class="n">Sana Qureshi · Employment attorney, CA Bar</div><div class="m">★ 4.9 · 312 reviews · usually replies in 8 min · available now</div></div></div>
-              <div class="say">Two things in this draft would not hold up in California: the exempt classification and the missing break language. Want me to review it and fix what's wrong?</div>
-              <div class="acts"><button class="btn btn-gold" data-go="task:s3" data-toast="Sana picked up your task">Review and fix · <span class="mono">$49</span> · ~10 min</button><button class="btn" data-toast="Sana will draft it from scratch · ~today">Do it fully · <span class="mono">$140</span> · today</button><button class="btn btn-ghost">Not now</button></div>
-              <div class="fine">You pay only when you accept her changes. Sana receives the full $49; fortune takes no cut of expert work.</div>
+              <div class="say" style="font-weight:500;color:var(--ink)">How do you want this finished? Either way fortune does the work on your computer.</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px">
+                <div class="card card-tight col" style="gap:8px"><div class="row between"><b>You supervise</b><span class="badge badge-mint">Free</span></div><p class="small muted">I continue; you approve each decision point and review the pull request yourself.</p><button class="btn" data-toast="Continuing · you will be asked at each decision point">Continue · I'll supervise</button></div>
+                <div class="card card-tight col" style="gap:8px;border-color:var(--gold-line);background:#FFFDF8"><div class="row between"><b>Jordan supervises</b><span class="badge badge-gold mono">$60 · ~15 min</span></div><div class="who" style="display:flex;align-items:center;gap:8px"><span class="avatar avatar-sm violet">JC</span><span class="small">Jordan Comstock · senior backend, Node/Postgres · L2 · ★ 4.9 · 61 jobs</span></div><p class="small muted">Jordan watches the decision points, corrects the approach where I'm wrong, and signs off the PR.</p><button class="btn btn-gold" data-go="task:s3" data-toast="Jordan picked up supervision">Jordan supervises · <span class="mono">$60</span></button></div>
+              </div>
+              <div class="fine">You pay only when you accept the result. Jordan receives the full $60; fortune takes no cut of expert work.</div>
             </div>
           </div></div>
         </div>
       </div>
-      <!-- scene 3: expert working -->
+      <!-- s3 supervising -->
       <div data-group="task" data-scene="s3" hidden data-after="task:s4" data-delay="3200">
         <div class="col" style="gap:18px">
-          <div class="msg msg-user"><div class="bubble">Review and fix · $49</div></div>
-          <div class="msg"><span class="avatar violet">SQ</span><div class="body"><div class="who">Sana Qureshi · picked up <span class="mono" data-elapsed="0">00:00</span> ago · window 15:00</div>
-            <div class="card card-tight col"><div class="row between"><span class="row"><span class="live">Working on it</span></span><span class="timer">Due in <b data-timer="14:46">14:46</b></span></div><div class="progress"><i style="width:38%"></i></div><p class="small muted">Sana is reading the draft and your request. Nothing is charged yet.</p></div>
-            <p>Hi Gill. Confirming the two issues: a $45/hour part-time designer is non-exempt in California, so overtime and break rules apply. I'm fixing the classification, adding meal and rest break language, and tightening the termination clause while I'm in there.</p>
+          <div class="msg msg-user"><div class="bubble">Jordan supervises · $60</div></div>
+          <div class="msg"><span class="avatar violet">JC</span><div class="body"><div class="who">Jordan Comstock · supervising · picked up <span class="mono" data-elapsed="0">00:00</span> ago · window 15:00</div>
+            <div class="card card-tight col"><div class="row between"><span class="live">Decision point · approach</span><span class="timer">Due in <b data-timer="14:41">14:41</b></span></div><div class="progress"><i style="width:44%"></i></div><p class="small muted">Jordan is directing fortune on your machine. Nothing is charged yet.</p></div>
+            <p>Hi Ned. The mutex only protects one process and you run two. I'm having fortune switch to a unique constraint on <span class="mono">(room_id, slot_start)</span> with a 409 on conflict, keep your failing test, and re-run the full suite. Should be about ten minutes.</p>
           </div></div>
         </div>
       </div>
-      <!-- scene 4: changes -->
+      <!-- s4 changes -->
       <div data-group="task" data-scene="s4" hidden>
         <div class="col" style="gap:18px">
-          <div class="msg"><span class="avatar violet">SQ</span><div class="body"><div class="who">Sana Qureshi · delivered in 9 min 12 s</div>
-            <p>Done. Three changes, each with the reason. Accept and the agreement updates; if anything is off, ask me and I'll re-review for free.</p>
+          <div class="msg"><span class="avatar violet">JC</span><div class="body"><div class="who">Jordan Comstock · signed off in 9 min 12 s · PR #142 open</div>
+            <p>Done. One correction to the approach, two files, tests green. Accept and the PR is ready to merge; if anything is off, ask me and I'll re-check for free.</p>
             <div class="diff">
-              <div class="d"><div class="t">§2 Compensation · classification</div><div class="before">The Employee is classified as exempt from overtime under applicable law.</div><div class="after">The Employee is classified as non-exempt. Hours over 8 in a day or 40 in a week are paid at 1.5× under California Labor Code §510.</div><div class="why">Why: at $45/hour part-time the salary threshold for exemption is not met; misclassification is the most common claim in CA.</div></div>
-              <div class="d"><div class="t">§4 Working hours · new clause</div><div class="before">—</div><div class="after">4.3 Meal and rest periods. For shifts over five hours the Employee receives an unpaid 30-minute meal period and a paid 10-minute rest period per four hours worked, per Labor Code §512 and IWC Order 4.</div><div class="why">Why: required for non-exempt employees; missing language is a penalty exposure of one hour's pay per violation.</div></div>
-              <div class="d"><div class="t">§9 Termination</div><div class="before">Either party may terminate this Agreement for any reason with thirty (30) days' notice.</div><div class="after">Employment is at will. Either party may end it at any time, with or without cause or notice. The Company will pay all earned wages at termination as required by Labor Code §201–203.</div><div class="why">Why: the notice clause contradicts the at-will statement in §1 and creates an implied-contract risk.</div></div>
+              <div class="d"><div class="t">services/bookings/create.ts · approach</div><div class="before">const release = await mutex.acquire();<br>try { await db.insert(booking) } finally { release() }</div><div class="after">try { await db.insert(booking) }<br>catch (e) { if (isUniqueViolation(e)) throw new Conflict(409, 'slot already booked'); throw e }</div><div class="why">Why: a process-local mutex cannot serialise two server instances; the database must own the invariant.</div></div>
+              <div class="d"><div class="t">migrations/20261016_unique_slot.sql · new</div><div class="before">—</div><div class="after">create unique index bookings_room_slot_uq on bookings (room_id, slot_start) where cancelled_at is null;</div><div class="why">Why: enforces one live booking per slot; cancelled rows stay out of the index.</div></div>
+              <div class="d"><div class="t">tests/bookings.concurrent.test.ts</div><div class="before">expect(countBookings(slot)).toBe(2) // documents the bug</div><div class="after">expect(statuses.sort()).toEqual([201, 409]); expect(countBookings(slot)).toBe(1)</div><div class="why">Why: the test now asserts the behaviour you asked for.</div></div>
             </div>
-            <div class="row wrap"><button class="btn btn-gold btn-lg" data-go="task:s5" data-toast="Accepted · $49 paid to Sana">Accept changes · pay <span class="mono">$49</span></button><button class="btn btn-lg" data-toast="Message sent to Sana">Ask Sana a question</button><button class="btn btn-ghost btn-lg" data-toast="Free re-review requested">Something's off</button></div>
+            <div class="card card-tight row between wrap"><span class="row"><span class="ok">✓</span><span class="small"><b>29 passed</b> · 0 failed · run on your machine · 48 s</span></span><span class="row"><a class="small" href="#" style="color:var(--gold);font-weight:500">PR #142 ↗</a><span class="small muted">2 files · +31 −6</span></span></div>
+            <div class="row wrap"><button class="btn btn-gold btn-lg" data-go="task:s5" data-toast="Accepted · $60 paid to Jordan · PR merged">Accept · merge · pay <span class="mono">$60</span></button><button class="btn btn-lg" data-toast="Message sent to Jordan">Ask Jordan a question</button><button class="btn btn-ghost btn-lg" data-toast="Free re-check requested">Something's off</button></div>
           </div></div>
         </div>
       </div>
-      <!-- scene 5: done -->
+      <!-- s5 done -->
       <div data-group="task" data-scene="s5" hidden>
         <div class="col" style="gap:18px">
-          <div class="msg msg-user"><div class="bubble">Accepted · $49</div></div>
+          <div class="msg msg-user"><div class="bubble">Accepted · merge · $60</div></div>
           <div class="msg"><span class="avatar gold">✦</span><div class="body"><div class="who">fortune</div>
-            <div class="card"><div class="card-head"><h3>Employment agreement · final</h3><span class="badge badge-mint">Reviewed by Sana Qureshi, CA Bar</span></div>
-              <div class="row wrap" style="gap:8px"><button class="btn btn-primary">Download DOCX</button><button class="btn">Send for signature</button><button class="btn btn-ghost">Save as template</button></div>
-              <hr class="hr" style="margin:14px 0"><div class="tl"><div><span class="w">10:42</span><span>You asked · model drafted in 41 s · free</span></div><div><span class="w">10:44</span><span>Sana picked up the review · 9 min 12 s · $49</span></div><div><span class="w">10:54</span><span>You accepted · receipt #F-20931 · Sana paid in full</span></div></div></div>
-            <div class="card card-tight row between wrap"><span class="row"><span class="avatar violet">SQ</span><span class="col" style="gap:0"><span style="font-weight:500">How was Sana?</span><span class="small muted">Your rating sets who gets offered your next task.</span></span></span><span class="row" style="gap:4px"><button class="chip">★ 5</button><button class="chip">★ 4</button><button class="chip">★ 3 or less</button></span></div>
-            <div class="note">This task helps train models. Your documents are de-identified before anything leaves fortune; Sana's corrections are what labs learn from. <a href="#" style="font-weight:600">Keep this task private</a> turns that off for this task only.</div>
-            <p class="small muted">Next time: ask for the same kind of work and Sana is offered first, at the same price.</p>
+            <div class="card"><div class="card-head"><h3>Double-booking bug · merged</h3><span class="badge badge-mint">Supervised by Jordan Comstock · L2</span></div>
+              <div class="row wrap" style="gap:8px"><button class="btn btn-primary">Open PR #142</button><button class="btn">Deploy to staging</button><button class="btn btn-ghost">Replay the session</button></div>
+              <hr class="hr" style="margin:14px 0"><div class="tl"><div><span class="w">10:42</span><span>You asked · fortune reproduced the bug and drafted a fix on your machine · free</span></div><div><span class="w">10:51</span><span>Jordan supervised · corrected the approach · 9 min 12 s · $60</span></div><div><span class="w">11:00</span><span>You accepted · PR merged · receipt #F-20944 · Jordan paid in full</span></div></div></div>
+            <div class="card card-tight row between wrap"><span class="row"><span class="avatar violet">JC</span><span class="col" style="gap:0"><span style="font-weight:500">How was Jordan?</span><span class="small muted">Your rating sets who is offered your next task.</span></span></span><span class="row" style="gap:4px"><button class="chip">★ 5</button><button class="chip">★ 4</button><button class="chip">★ 3 or less</button></span></div>
+            <div class="note">This task helps train models: the session, the checks and Jordan's correction, de-identified. Your code and client data never leave your machine un-redacted.</div>
+            <p class="small muted">Next time: the same kind of task is offered to Jordan first, at the same price.</p>
           </div></div>
         </div>
       </div>
     </div>
 
-    <div class="composer"><div class="composer-box"><input placeholder="Ask for anything · drafts are free" aria-label="Ask"><button class="btn btn-sm btn-ghost" title="Attach">＋</button><button class="btn btn-sm btn-primary" data-go="task:s2">Send</button></div><div class="composer-hint">Models are free. An expert is offered only when the draft needs one. You pay on acceptance.</div></div>
+    <div class="composer"><div class="composer-box"><input placeholder="Ask for anything · fortune works on your computer, free" aria-label="Ask"><button class="btn btn-sm btn-ghost" title="Attach">＋</button><button class="btn btn-sm btn-primary" data-go="task:s2">Send</button></div><div class="composer-hint">Two ways to finish: supervise it yourself, free, or have an expert supervise for a few dollars. You pay on acceptance.</div></div>
   </main>
 
   <aside class="panel">
-    <div><div class="label" style="margin-bottom:8px">Task</div><div class="list small"><div class="row between"><span class="muted">Type</span><span>Legal · employment</span></div><div class="row between"><span class="muted">Jurisdiction</span><span>California</span></div><div class="row between"><span class="muted">Files</span><span>none attached</span></div><div class="row between"><span class="muted">Model cost to you</span><span class="mono">$0.00</span></div></div></div>
-    <div><div class="label" style="margin-bottom:8px">Expert on this task</div><div class="card card-tight col"><div class="row"><span class="avatar violet">SQ</span><div class="col" style="gap:0"><span style="font-weight:500">Sana Qureshi</span><span class="xs muted">Employment attorney · CA Bar · Lahore / PKT</span></div></div><div class="kpis" style="grid-template-columns:repeat(3,1fr)"><div class="kpi"><span class="v" style="font-size:16px">4.9</span><span class="k">rating</span></div><div class="kpi"><span class="v" style="font-size:16px">98%</span><span class="k">accepted</span></div><div class="kpi"><span class="v" style="font-size:16px">8 min</span><span class="k">typical</span></div></div><span class="xs muted-3">Verified by a graded qualification task and 12 judge checks this month, all upheld.</span></div></div>
-    <div><div class="label" style="margin-bottom:8px">Price</div><div class="list small"><div class="row between"><span class="muted">Review · fix what's wrong</span><span class="mono">$49</span></div><div class="row between"><span class="muted">Do it fully</span><span class="mono">$140</span></div><div class="row between"><span class="muted">fortune's cut of expert work</span><span class="mono">$0</span></div></div><p class="xs muted-3" style="margin-top:6px">Prices are set by the expert's rate and the task size. Experts keep 100%.</p></div>
-    <div><div class="label" style="margin-bottom:8px">Data</div><div class="row between"><span class="small">Use this task to train models</span><button class="switch" role="switch" aria-checked="true" aria-label="Use this task to train models"></button></div><p class="xs muted-3" style="margin-top:6px">De-identified. Off for this task only; account default lives in Settings.</p></div>
+    <div><div class="label" style="margin-bottom:8px">Task</div><div class="list small"><div class="row between"><span class="muted">Type</span><span>Software · Node, Postgres</span></div><div class="row between"><span class="muted">Runs on</span><span>Your Mac · fortune extension</span></div><div class="row between"><span class="muted">May touch</span><span>intake-app · terminal · localhost</span></div><div class="row between"><span class="muted">Model cost to you</span><span class="mono">$0.00</span></div></div></div>
+    <div><div class="label" style="margin-bottom:8px">Supervision</div><div class="list small"><div class="row between"><span class="muted">You supervise</span><span class="mono">$0</span></div><div class="row between"><span class="muted">Jordan supervises</span><span class="mono">$60</span></div><div class="row between"><span class="muted">fortune's cut of expert work</span><span class="mono">$0</span></div></div><p class="xs muted-3" style="margin-top:6px">Expert price = the expert's rate × task size. Experts are contracted through PowerHouse and keep 100%.</p></div>
+    <div><div class="label" style="margin-bottom:8px">Expert on this task</div><div class="card card-tight col"><div class="row"><span class="avatar violet">JC</span><div class="col" style="gap:0"><span style="font-weight:500">Jordan Comstock</span><span class="xs muted">Senior backend · Node, Postgres · L2</span></div></div><div class="kpis" style="grid-template-columns:repeat(3,1fr)"><div class="kpi"><span class="v" style="font-size:16px">4.9</span><span class="k">rating</span></div><div class="kpi"><span class="v" style="font-size:16px">98%</span><span class="k">accepted</span></div><div class="kpi"><span class="v" style="font-size:16px">11 min</span><span class="k">typical</span></div></div><span class="xs muted-3">Qualified on a graded task · 14 judge checks this month, all upheld.</span></div></div>
+    <div><div class="label" style="margin-bottom:8px">Data</div><div class="row between"><span class="small">Use this task to train models</span><button class="switch" role="switch" aria-checked="true" aria-label="Use this task to train models"></button></div><p class="xs muted-3" style="margin-top:6px">De-identified. Per the terms, tasks on fortune train models; this switch keeps one task out.</p></div>
   </aside>
 </div>
 <script src="fortune.js"></script>
