@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PowerHouse Code · Kate’s Workspace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="ph.css"></head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2 3 14h7l-1 8 10-12h-7z"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+<symbol id="i-repo" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5V4.5M8 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5zM3 13l9 5 9-5M3 17l9 5 9-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+<symbol id="i-task" viewBox="0 0 24 24"><path d="M9 11l2 2 4-4M5 5h14v14H5z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM6 6H4a3 3 0 0 0 3 4M18 6h2a3 3 0 0 1-3 4M12 13v4M8 21h8M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" stroke="currentColor" stroke-width="1.6" fill="none"/></symbol>
+<symbol id="i-discord" viewBox="0 0 24 24"><path fill="currentColor" d="M19.3 5.3A17 17 0 0 0 15.1 4l-.2.4a15 15 0 0 1 3.8 1.9 13 13 0 0 0-13.4 0A15 15 0 0 1 9.1 4.4L8.9 4a17 17 0 0 0-4.2 1.3C2 9.3 1.3 13.1 1.6 16.9a17 17 0 0 0 5.2 2.6l1.1-1.8a11 11 0 0 1-1.7-.8l.4-.3a12 12 0 0 0 10.8 0l.4.3-1.7.8 1.1 1.8a17 17 0 0 0 5.2-2.6c.4-4.4-.7-8.2-3.1-11.6zM8.7 14.6c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1zm6.6 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+<symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol>
+</defs></svg>
+
+<div class="shell" data-panel-scenes="s3,s5">
+  <aside class="side">
+    <a class="brand" href="index.html"><span class="mark"><svg><use href="#i-bolt"/></svg></span>PowerHouse <span class="sub">Code</span></a>
+    <div class="ws"><span class="avatar avatar-sm kate">K</span>Kate’s Workspace<svg class="chev" width="16" height="16"><use href="#i-chev"/></svg></div>
+    <button class="btn btn-primary btn-block" data-go="t:s1">New task <span class="k">⌘N</span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="app.html" aria-current="page"><svg><use href="#i-task"/></svg>Tasks</a>
+      <a href="settings.html#repos"><svg><use href="#i-repo"/></svg>Repos <span class="cnt">2</span></a>
+      <a href="leaderboard.html"><svg><use href="#i-trophy"/></svg>Leaderboard</a>
+      <a href="settings.html"><svg><use href="#i-db"/></svg>Data &amp; settings</a>
+      <a href="#" data-toast="Opens the PowerHouse Discord"><svg><use href="#i-discord"/></svg>Discord <span class="cnt">↗</span></a>
+    </nav>
+    <div class="nav-sec">Recent</div>
+    <nav class="nav recent" aria-label="Recent tasks">
+      <a href="#" data-go="t:s3">Double-booking bug · intake-app</a>
+      <a href="#" data-toast="Opens task">Stripe webhooks · billing</a>
+      <a href="#" data-toast="Opens task">Flaky checkout tests · intake-app</a>
+      <a href="#" data-toast="Opens task">Rate limiter · public API</a>
+      <a href="#" data-toast="Opens task">Migrate auth to Fastify</a>
+    </nav>
+    <div class="side-foot">
+      <div class="card card-tight col" style="gap:6px"><span class="row between"><span class="label" style="color:var(--g800)">Free plan</span><span class="badge badge-green">Beta</span></span><span class="xs muted">Unlimited tasks, three models per task. Your choices train better models; repo contents stay private.</span><a class="btn-link xs" href="settings.html">Data &amp; settings →</a></div>
+      <div class="row"><span class="avatar kate">KM</span><div class="col" style="gap:0"><span class="small" style="font-weight:600">Kate Morrison</span><span class="xs muted-3">kate@retinalsolutions.com</span></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="row">
+        <h4 data-group="t" data-scene="s1">New task</h4>
+        <h4 data-group="t" data-scene="s2" hidden>Double-booking bug · intake-app</h4>
+        <h4 data-group="t" data-scene="s3" hidden>Double-booking bug · intake-app</h4>
+        <h4 data-group="t" data-scene="s4" hidden>Double-booking bug · intake-app</h4>
+        <h4 data-group="t" data-scene="s5" hidden>Double-booking bug · intake-app</h4>
+        <h4 data-group="t" data-scene="s6" hidden>Double-booking bug · intake-app</h4>
+        <span class="badge badge-blue" data-group="t" data-scene="s2" hidden><span class="spin" style="width:10px;height:10px;border-width:1.5px"></span>Running · 3 models</span>
+        <span class="badge badge-indigo" data-group="t" data-scene="s3" hidden>3 results · choose one</span>
+        <span class="badge badge-green" data-group="t" data-scene="s4" hidden>Applied · PR #142</span>
+        <span class="badge badge-amber" data-group="t" data-scene="s5" hidden>Your fix · editing</span>
+        <span class="badge badge-green" data-group="t" data-scene="s6" hidden>Override recorded · PR #142</span>
+      </div>
+      <div class="row">
+        <div class="seg" role="tablist" aria-label="Demo steps"><button data-scene-tab="s1" data-group="t" data-go="t:s1" aria-selected="true">1 Ask</button><button data-scene-tab="s2" data-group="t" data-go="t:s2">2 Run</button><button data-scene-tab="s3" data-group="t" data-go="t:s3">3 Choose</button><button data-scene-tab="s4" data-group="t" data-go="t:s4">4 Applied</button><button data-scene-tab="s5" data-group="t" data-go="t:s5">5 Override</button></div>
+        <button class="btn btn-sm" data-toast="Share link copied">Share</button>
+      </div>
+    </div>
+
+    <div class="page">
+      <!-- s1 · ask (claude.ai home) -->
+      <section data-group="t" data-scene="s1" data-scene-init="s1">
+        <div class="hello"><span class="spark"><svg><use href="#i-bolt"/></svg></span><h1>Hi Kate! What would you like to work on today?</h1><p>PowerBot runs your task on three models at once. You pick the result; it ships.</p></div>
+        <div class="composer">
+          <textarea placeholder="Assign a task or ask anything..." aria-label="Task"></textarea>
+          <div class="bar">
+            <div class="row wrap">
+              <button class="icon-btn" title="Attach" data-toast="Attach files or screenshots"><svg><use href="#i-plus"/></svg></button>
+              <button class="ctx" data-toast="Switch repository"><svg><use href="#i-repo"/></svg>intake-app <span class="muted-3">· main</span><svg><use href="#i-chev"/></svg></button>
+              <button class="ctx" data-toast="Three frontier models run in parallel; names hidden until you choose"><svg><use href="#i-layers"/></svg>3 models <span class="muted-3">· blind</span></button>
+            </div>
+            <button class="send" data-go="t:s2" aria-label="Send"><svg><use href="#i-send"/></svg></button>
+          </div>
+        </div>
+        <div class="sugg">
+          <button class="chip" data-go="t:s2">Fix the double-booking bug in intake-app</button>
+          <button class="chip" data-go="t:s2">Add Stripe webhooks to billing</button>
+          <button class="chip" data-go="t:s2">Write tests for the bookings service</button>
+          <button class="chip" data-go="t:s2">Migrate auth to Fastify</button>
+        </div>
+        <div class="stack-3" style="margin-top:44px">
+          <div class="row between"><span class="label" style="color:var(--g800)">Recent tasks</span><a class="btn-link small" href="#" data-toast="All tasks">View all</a></div>
+          <div class="card card-flat" style="padding:0">
+            <div class="list" style="padding:0 14px">
+              <div class="row between"><div class="col" style="gap:2px"><span style="font-weight:500">Stripe webhooks · billing</span><span class="xs muted-3">Applied A · PR #139 merged · 2h ago</span></div><span class="badge badge-green">Merged</span></div>
+              <div class="row between"><div class="col" style="gap:2px"><span style="font-weight:500">Flaky checkout tests · intake-app</span><span class="xs muted-3">Your fix recorded · PR #137 · yesterday</span></div><span class="badge badge-amber">Override</span></div>
+              <div class="row between"><div class="col" style="gap:2px"><span style="font-weight:500">Rate limiter · public API</span><span class="xs muted-3">Applied C · PR #131 · Mon</span></div><span class="badge badge-green">Merged</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- s2 · running three models -->
+      <section data-group="t" data-scene="s2" hidden data-after="t:s3" data-delay="5200">
+        <div class="thread">
+          <div class="msg user"><div class="bubble">Fix the double-booking bug in intake-app: two clients can book the same slot. Tests must pass.</div></div>
+          <div class="msg"><span class="avatar bot"><svg><use href="#i-bolt"/></svg></span><div class="body"><div class="who">PowerBot · intake-app · running three models in parallel · <span class="mono" data-elapsed="0">00:00</span></div>
+            <p>I’m running your task three ways at once. You’ll pick the result to apply. Model names stay hidden until you choose, so the vote is fair.</p>
+            <div class="runs">
+              <div class="run"><div class="head"><span class="name"><span class="avatar avatar-sm a">A</span>Model A</span><span class="spin"></span></div><div class="mini" data-stream data-step="900"><span class="st"><span class="ok">✓</span>Read services/bookings · 6 files</span><span class="st"><span class="ok">✓</span>Ran suite · 27 passed</span><span class="st"><span class="ok">✓</span>Wrote a failing test for concurrent bookings</span><span class="st"><span class="dim">…</span>Drafting fix in create.ts</span></div></div>
+              <div class="run"><div class="head"><span class="name"><span class="avatar avatar-sm b">B</span>Model B</span><span class="spin"></span></div><div class="mini" data-stream data-step="800" data-start="300"><span class="st"><span class="ok">✓</span>Read services/bookings · schema.sql</span><span class="st"><span class="ok">✓</span>Ran suite · 27 passed</span><span class="st"><span class="ok">✓</span>Reproduced · countBookings → 2</span><span class="st"><span class="dim">…</span>Writing a migration</span></div></div>
+              <div class="run"><div class="head"><span class="name"><span class="avatar avatar-sm c">C</span>Model C</span><span class="spin"></span></div><div class="mini" data-stream data-step="1000" data-start="600"><span class="st"><span class="ok">✓</span>Read services/bookings</span><span class="st"><span class="ok">✓</span>Ran suite · 27 passed</span><span class="st"><span class="dim">…</span>Trying a Postgres advisory lock</span></div></div>
+            </div>
+            <p class="xs muted-3">Each run works in its own sandbox on a copy of <span class="mono">main</span>. Nothing touches your branch until you apply a result.</p>
+          </div></div>
+        </div>
+      </section>
+
+      <!-- s3 · choose -->
+      <section data-group="t" data-scene="s3" hidden>
+        <div class="thread">
+          <div class="msg user"><div class="bubble">Fix the double-booking bug in intake-app: two clients can book the same slot. Tests must pass.</div></div>
+          <div class="msg"><span class="avatar bot"><svg><use href="#i-bolt"/></svg></span><div class="body"><div class="who">PowerBot · 3 results · 02:41</div>
+            <p>Three results are ready. The suite ran on each. Pick the one to apply, or fix it yourself if none is right.</p>
+            <div class="runs">
+              <div class="run" data-cand="A"><div class="head"><span class="name"><span class="avatar avatar-sm a">A</span>Model A</span><span class="badge badge-green">28 passed</span></div>
+                <p class="small" style="font-size:13.5px;color:var(--g800)">In-process mutex around <span class="mono">createBooking</span>; keeps the new concurrency test.</p>
+                <div class="stat"><span>1 file</span><span class="add">+18</span><span class="del">−2</span></div>
+                <div class="mini"><span><span class="bad">!</span>Protects one server instance only; prod runs two.</span></div>
+                <div class="row" style="margin-top:auto"><button class="btn btn-sm" data-choose="A">Choose A</button><button class="btn btn-sm btn-ghost" data-panel="A"><svg><use href="#i-eye"/></svg>Diff</button></div></div>
+              <div class="run" data-cand="B"><div class="head"><span class="name"><span class="avatar avatar-sm b">B</span>Model B</span><span class="badge badge-green">29 passed</span></div>
+                <p class="small" style="font-size:13.5px;color:var(--g800)">Unique index on <span class="mono">(room_id, slot_start)</span> with a 409 on conflict; migration included.</p>
+                <div class="stat"><span>3 files</span><span class="add">+42</span><span class="del">−7</span></div>
+                <div class="mini"><span><span class="ok">✓</span>Holds across multiple instances; data layer enforces it.</span></div>
+                <div class="row" style="margin-top:auto"><button class="btn btn-sm" data-choose="B">Choose B</button><button class="btn btn-sm btn-ghost" data-panel="B"><svg><use href="#i-eye"/></svg>Diff</button></div></div>
+              <div class="run" data-cand="C"><div class="head"><span class="name"><span class="avatar avatar-sm c">C</span>Model C</span><span class="badge badge-red">2 failed</span></div>
+                <p class="small" style="font-size:13.5px;color:var(--g800)">Postgres advisory lock per room inside the transaction.</p>
+                <div class="stat"><span>2 files</span><span class="add">+31</span><span class="del">−4</span></div>
+                <div class="mini"><span><span class="bad">✕</span>Two existing tests fail: lock not released on error.</span></div>
+                <div class="row" style="margin-top:auto"><button class="btn btn-sm" data-choose="C">Choose C</button><button class="btn btn-sm btn-ghost" data-panel="C"><svg><use href="#i-eye"/></svg>Diff</button></div></div>
+            </div>
+            <div class="card col" data-why hidden style="gap:10px;border-color:var(--i100);background:var(--i50)">
+              <div class="row between"><b>Why <span class="cl">B</span>? <span class="muted" style="font-weight:400">optional, helps the next run</span></b></div>
+              <div class="why"><button class="chip" data-toggle>Correct</button><button class="chip" data-toggle>Cleaner</button><button class="chip" data-toggle>Faster</button><button class="chip" data-toggle>Matches our style</button><button class="chip" data-toggle>Safer in production</button><button class="chip" data-toggle>Better tests</button></div>
+              <input class="input" placeholder="Anything else? e.g. B is the only one that survives two servers">
+            </div>
+            <div class="row wrap">
+              <button class="btn btn-primary" data-apply="s4" data-group="t" disabled>Apply <span class="cl">…</span> to intake-app</button>
+              <button class="btn" data-go="t:s5">None of these · I’ll fix it</button>
+              <span class="xs muted-3" style="margin-left:4px">Hand to an expert · coming soon</span>
+            </div>
+            <div class="record"><svg><use href="#i-db"/></svg><span>Your choice and reason are saved as a preference record. Diffs and the task are stored; repository contents are not. <a class="btn-link" href="settings.html">Data &amp; settings</a></span></div>
+          </div></div>
+        </div>
+      </section>
+
+      <!-- s4 · applied + reveal + next prompt -->
+      <section data-group="t" data-scene="s4" hidden>
+        <div class="thread">
+          <div class="msg user"><div class="bubble">Apply <span class="cl-final">B</span> · <span class="why-final">safer in production</span></div></div>
+          <div class="msg"><span class="avatar bot"><svg><use href="#i-bolt"/></svg></span><div class="body"><div class="who">PowerBot · applied · 00:12</div>
+            <p>Applied <b><span class="cl-final">B</span></b>. Branch <span class="mono">powerbot/fix-double-booking</span> pushed and PR #142 opened on intake-app. 29 tests passing.</p>
+            <div class="reveal">
+              <div><span class="avatar avatar-sm a">A</span><span class="nm">Claude Opus 5.5</span><span class="badge tag">not chosen</span></div>
+              <div><span class="avatar avatar-sm b">B</span><span class="nm">GPT-5.5</span><span class="badge badge-indigo tag">chosen</span></div>
+              <div><span class="avatar avatar-sm c">C</span><span class="nm">Gemini 3 Pro</span><span class="badge badge-red tag">2 tests failed</span></div>
+            </div>
+            <div class="record"><svg><use href="#i-check"/></svg><span>Preference record saved · <span class="mono">pr-20931</span> · <span class="cl-final">B</span> over the others · reason: <span class="why-final">safer in production</span>. Thanks, this trains the next model.</span></div>
+            <div class="row wrap"><a class="btn btn-sm" href="#" data-toast="Opens PR #142 on GitHub">Open PR #142</a><button class="btn btn-sm btn-ghost" data-go="t:s3">Compare again</button></div>
+            <p class="small muted" style="margin-top:4px">What’s still missing? Tell me and I’ll run the next step the same way.</p>
+          </div></div>
+        </div>
+        <div class="composer-dock"><div class="composer">
+          <textarea placeholder="What should change next? e.g. return a message the client can show on 409" aria-label="Next step"></textarea>
+          <div class="bar"><div class="row wrap"><button class="icon-btn" data-toast="Attach"><svg><use href="#i-plus"/></svg></button><button class="ctx"><svg><use href="#i-repo"/></svg>intake-app <span class="muted-3">· powerbot/fix-double-booking</span></button><button class="ctx"><svg><use href="#i-layers"/></svg>3 models <span class="muted-3">· blind</span></button></div><button class="send" data-go="t:s2" data-toast="Next step started on the same branch" aria-label="Send"><svg><use href="#i-send"/></svg></button></div>
+        </div><div class="sugg" style="margin-top:10px"><button class="chip" data-go="t:s2">Return a client-safe message on 409</button><button class="chip" data-go="t:s2">Backfill the duplicate rows</button><button class="chip" data-go="t:s2">Add a load test for two instances</button></div></div>
+      </section>
+
+      <!-- s5 · override (none of these) -->
+      <section data-group="t" data-scene="s5" hidden>
+        <div class="thread">
+          <div class="msg user"><div class="bubble">None of these. I’ll fix it.</div></div>
+          <div class="msg"><span class="avatar bot"><svg><use href="#i-bolt"/></svg></span><div class="body"><div class="who">PowerBot · your fix · started from B</div>
+            <p>Edit the diff on the right, or in your editor on the branch <span class="mono">powerbot/fix-double-booking</span>. I’ll record what you changed as the fix all three models missed.</p>
+            <div class="card col" style="gap:10px">
+              <div class="row between"><b>What was wrong with all three?</b><span class="xs muted-3">optional</span></div>
+              <div class="why"><button class="chip" data-toggle aria-pressed="true">Missed a constraint</button><button class="chip" data-toggle>Wrong approach</button><button class="chip" data-toggle>Broke existing behaviour</button><button class="chip" data-toggle>Too much code</button><button class="chip" data-toggle>Wrong files</button></div>
+              <input class="input" value="B is right but the index must be partial: cancelled bookings share the slot." aria-label="Note">
+            </div>
+            <div class="row wrap"><button class="btn btn-primary" data-go="t:s6" data-toast="Override recorded · PR #142 updated">Record my fix · push to PR</button><button class="btn btn-ghost" data-go="t:s3">Back to results</button></div>
+            <div class="record"><svg><use href="#i-db"/></svg><span>Overrides are the most valuable record you can give: a task every model failed, with the human fix. Stored as a diff plus your note.</span></div>
+          </div></div>
+        </div>
+      </section>
+
+      <!-- s6 · override recorded -->
+      <section data-group="t" data-scene="s6" hidden>
+        <div class="thread">
+          <div class="msg user"><div class="bubble">Record my fix · partial unique index, cancelled bookings excluded</div></div>
+          <div class="msg"><span class="avatar bot"><svg><use href="#i-bolt"/></svg></span><div class="body"><div class="who">PowerBot · override recorded · 00:09</div>
+            <p>Recorded. PR #142 now carries your fix: a partial unique index <span class="mono">WHERE status &lt;&gt; 'cancelled'</span>. 30 tests passing, including the one you added.</p>
+            <div class="reveal">
+              <div><span class="avatar avatar-sm a">A</span><span class="nm">Claude Opus 5.5</span><span class="badge tag">missed it</span></div>
+              <div><span class="avatar avatar-sm b">B</span><span class="nm">GPT-5.5</span><span class="badge badge-amber tag">closest</span></div>
+              <div><span class="avatar avatar-sm c">C</span><span class="nm">Gemini 3 Pro</span><span class="badge badge-red tag">2 tests failed</span></div>
+            </div>
+            <div class="record"><svg><use href="#i-check"/></svg><span>Override record saved · <span class="mono">ov-4412</span> · task, three attempts, your diff and note. Thank you, Kate.</span></div>
+            <div class="row wrap"><a class="btn btn-sm" href="#" data-toast="Opens PR #142 on GitHub">Open PR #142</a><button class="btn btn-sm btn-ghost" data-go="t:s1">New task</button></div>
+          </div></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- right panel · diff viewer (shown on s3 and s5) -->
+  <aside class="panel" hidden>
+    <div class="phead"><div class="row"><b>Diff · candidate <span class="cl-panel">B</span></b></div><div class="seg" role="tablist"><button data-panel="A" aria-selected="false">A</button><button data-panel="B" aria-selected="true">B</button><button data-panel="C" aria-selected="false">C</button></div></div>
+    <div class="pbody">
+      <div data-diff="A" hidden>
+        <div class="diff"><div class="file"><span>services/bookings/create.ts</span><span class="mono xs"><span style="color:var(--s700)">+18</span> <span style="color:var(--e700)">−2</span></span></div><pre><span class="l h">@@ -1,4 +1,6 @@</span><span class="l a">+import { Mutex } from 'async-mutex';</span><span class="l a">+const slotLock = new Mutex();</span><span class="l"> export async function createBooking(input: BookingInput) {</span><span class="l d">-  const clash = await db.bookings.findFirst({ where: slot(input) });</span><span class="l d">-  if (clash) throw new ConflictError('Slot already booked');</span><span class="l a">+  return slotLock.runExclusive(async () => {</span><span class="l a">+    const clash = await db.bookings.findFirst({ where: slot(input) });</span><span class="l a">+    if (clash) throw new ConflictError('Slot already booked');</span><span class="l a">+    return db.bookings.create({ data: input });</span><span class="l a">+  });</span><span class="l"> }</span></pre></div>
+        <p class="xs muted-3">A mutex only serialises one process. intake-app runs two instances behind the load balancer.</p>
+      </div>
+      <div data-diff="B">
+        <div class="diff"><div class="file"><span>migrations/20261020_unique_slot.sql</span><span class="mono xs"><span style="color:var(--s700)">+3</span></span></div><pre><span class="l a">+CREATE UNIQUE INDEX bookings_room_slot_uniq</span><span class="l a">+  ON bookings (room_id, slot_start);</span></pre></div>
+        <div class="diff"><div class="file"><span>services/bookings/create.ts</span><span class="mono xs"><span style="color:var(--s700)">+21</span> <span style="color:var(--e700)">−7</span></span></div><pre><span class="l h">@@ -3,9 +3,14 @@</span><span class="l"> export async function createBooking(input: BookingInput) {</span><span class="l d">-  const clash = await db.bookings.findFirst({ where: slot(input) });</span><span class="l d">-  if (clash) throw new ConflictError('Slot already booked');</span><span class="l d">-  return db.bookings.create({ data: input });</span><span class="l a">+  try {</span><span class="l a">+    return await db.bookings.create({ data: input });</span><span class="l a">+  } catch (e) {</span><span class="l a">+    if (isUniqueViolation(e)) throw new ConflictError('Slot already booked', 409);</span><span class="l a">+    throw e;</span><span class="l a">+  }</span><span class="l"> }</span></pre></div>
+        <div class="diff"><div class="file"><span>tests/bookings.concurrent.test.ts</span><span class="mono xs"><span style="color:var(--s700)">+18</span></span></div><pre><span class="l a">+it('rejects the second concurrent booking with 409', async () => {</span><span class="l a">+  const [a, b] = await Promise.allSettled([book(slot), book(slot)]);</span><span class="l a">+  expect([a, b].filter(r => r.status === 'fulfilled')).toHaveLength(1);</span><span class="l a">+  expect(await countBookings(slot)).toBe(1);</span><span class="l a">+});</span></pre></div>
+        <div data-group="t" data-scene="s5" hidden>
+          <div class="note-amber note" style="margin-bottom:8px">Your edit · partial index so cancelled bookings free the slot</div>
+          <div class="diff"><div class="file"><span>migrations/20261020_unique_slot.sql</span><span class="badge badge-amber">edited</span></div><pre><span class="l"> CREATE UNIQUE INDEX bookings_room_slot_uniq</span><span class="l d">-  ON bookings (room_id, slot_start);</span><span class="l a e">+  ON bookings (room_id, slot_start)</span><span class="l a e">+  WHERE status &lt;&gt; 'cancelled';</span></pre></div>
+          <div class="diff"><div class="file"><span>tests/bookings.concurrent.test.ts</span><span class="badge badge-amber">edited</span></div><pre><span class="l a e">+it('lets a cancelled slot be booked again', async () => {</span><span class="l a e">+  await cancel(await book(slot));</span><span class="l a e">+  await expect(book(slot)).resolves.toBeTruthy();</span><span class="l a e">+});</span></pre></div>
+        </div>
+      </div>
+      <div data-diff="C" hidden>
+        <div class="diff"><div class="file"><span>services/bookings/create.ts</span><span class="mono xs"><span style="color:var(--s700)">+24</span> <span style="color:var(--e700)">−4</span></span></div><pre><span class="l"> export async function createBooking(input: BookingInput) {</span><span class="l a">+  return db.$transaction(async (tx) => {</span><span class="l a">+    await tx.$executeRaw`SELECT pg_advisory_xact_lock(${input.roomId})`;</span><span class="l a">+    const clash = await tx.bookings.findFirst({ where: slot(input) });</span><span class="l a">+    if (clash) throw new ConflictError('Slot already booked');</span><span class="l a">+    return tx.bookings.create({ data: input });</span><span class="l a">+  });</span><span class="l"> }</span></pre></div>
+        <div class="note note-red">2 tests failed · <span class="mono">bookings.cancel</span> and <span class="mono">bookings.reschedule</span>: lock held when the transaction throws.</div>
+      </div>
+    </div>
+  </aside>
+</div>
+<script src="ph.js"></script>
+</body></html>

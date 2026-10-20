@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PowerHouse Code · Leaderboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="ph.css"></head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2 3 14h7l-1 8 10-12h-7z"/></symbol>
+<symbol id="i-repo" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5V4.5M8 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></symbol>
+<symbol id="i-task" viewBox="0 0 24 24"><path d="M9 11l2 2 4-4M5 5h14v14H5z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM6 6H4a3 3 0 0 0 3 4M18 6h2a3 3 0 0 1-3 4M12 13v4M8 21h8M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+<symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol>
+<symbol id="i-discord" viewBox="0 0 24 24"><path fill="currentColor" d="M19.3 5.3A17 17 0 0 0 15.1 4l-.2.4a15 15 0 0 1 3.8 1.9 13 13 0 0 0-13.4 0A15 15 0 0 1 9.1 4.4L8.9 4a17 17 0 0 0-4.2 1.3C2 9.3 1.3 13.1 1.6 16.9a17 17 0 0 0 5.2 2.6l1.1-1.8a11 11 0 0 1-1.7-.8l.4-.3a12 12 0 0 0 10.8 0l.4.3-1.7.8 1.1 1.8a17 17 0 0 0 5.2-2.6c.4-4.4-.7-8.2-3.1-11.6zM8.7 14.6c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1zm6.6 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1z"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+</defs></svg>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html"><span class="mark"><svg><use href="#i-bolt"/></svg></span>PowerHouse <span class="sub">Code</span></a>
+    <div class="ws"><span class="avatar avatar-sm kate">K</span>Kate’s Workspace<svg class="chev" width="16" height="16"><use href="#i-chev"/></svg></div>
+    <a class="btn btn-primary btn-block" href="app.html">New task <span class="k">⌘N</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="app.html"><svg><use href="#i-task"/></svg>Tasks</a>
+      <a href="settings.html#repos"><svg><use href="#i-repo"/></svg>Repos <span class="cnt">2</span></a>
+      <a href="leaderboard.html" aria-current="page"><svg><use href="#i-trophy"/></svg>Leaderboard</a>
+      <a href="settings.html"><svg><use href="#i-db"/></svg>Data &amp; settings</a>
+      <a href="#" data-toast="Opens the PowerHouse Discord"><svg><use href="#i-discord"/></svg>Discord <span class="cnt">↗</span></a>
+    </nav>
+    <div class="side-foot"><div class="row"><span class="avatar kate">KM</span><div class="col" style="gap:0"><span class="small" style="font-weight:600">Kate Morrison</span><span class="xs muted-3">kate@retinalsolutions.com</span></div></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar"><h4>Leaderboard</h4><div class="row"><div class="seg" role="tablist"><button aria-selected="true">7 days</button><button>30 days</button><button>All time</button></div></div></div>
+    <div class="page page-wide stack-5">
+      <div class="col" style="gap:4px"><h1>Which model wins real coding tasks</h1><p class="muted" style="font-size:15px">Blind votes from developers applying results to their own repos. Names are revealed only after a choice is made.</p></div>
+      <div class="kpis">
+        <div class="card kpi"><span class="v mono">48,210</span><span class="k">blind votes · 7 days</span></div>
+        <div class="card kpi"><span class="v mono">9,340</span><span class="k">tasks run this week</span></div>
+        <div class="card kpi"><span class="v mono">6.1%</span><span class="k">overrides · all models failed</span></div>
+        <div class="card kpi"><span class="v mono">12</span><span class="k">your votes · thank you</span></div>
+      </div>
+      <div class="row wrap"><button class="chip is-on" data-toggle aria-pressed="true">All tasks</button><button class="chip">Bug fix</button><button class="chip">Feature</button><button class="chip">Tests</button><button class="chip">Refactor</button><button class="chip">Migration</button><span class="grow"></span><button class="chip">TypeScript</button><button class="chip">Python</button><button class="chip">Go</button></div>
+      <div class="table-wrap"><table class="table">
+        <thead><tr><th style="width:48px">#</th><th>Model</th><th style="width:34%">Win rate · chosen when shown</th><th class="num">Votes</th><th class="num">Tests pass</th><th class="num">Median time</th><th class="num">Overridden</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">1</td><td><span class="row"><span class="avatar avatar-sm b">G</span><b>GPT-5.5</b></span></td><td><div class="bar-row"><div class="meter"><i style="width:54%;background:var(--p600)"></i></div><span class="mono xs" style="width:40px">54%</span></div></td><td class="num">31,480</td><td class="num">91%</td><td class="num">2m 34s</td><td class="num">4.9%</td></tr>
+          <tr><td class="mono">2</td><td><span class="row"><span class="avatar avatar-sm a">C</span><b>Claude Opus 5.5</b></span></td><td><div class="bar-row"><div class="meter"><i style="width:52%;background:var(--p600)"></i></div><span class="mono xs" style="width:40px">52%</span></div></td><td class="num">30,912</td><td class="num">93%</td><td class="num">3m 02s</td><td class="num">4.2%</td></tr>
+          <tr><td class="mono">3</td><td><span class="row"><span class="avatar avatar-sm c">G</span><b>Gemini 3 Pro</b></span></td><td><div class="bar-row"><div class="meter"><i style="width:41%;background:var(--p600)"></i></div><span class="mono xs" style="width:40px">41%</span></div></td><td class="num">29,775</td><td class="num">84%</td><td class="num">1m 58s</td><td class="num">7.8%</td></tr>
+          <tr><td class="mono">4</td><td><span class="row"><span class="avatar avatar-sm" style="background:var(--abyss)">M</span><b>Muse 6</b></span></td><td><div class="bar-row"><div class="meter"><i style="width:33%;background:var(--g400)"></i></div><span class="mono xs" style="width:40px">33%</span></div></td><td class="num">18,204</td><td class="num">79%</td><td class="num">1m 41s</td><td class="num">9.1%</td></tr>
+          <tr><td class="mono">5</td><td><span class="row"><span class="avatar avatar-sm" style="background:var(--g700)">D</span><b>DeepSeek V4</b></span></td><td><div class="bar-row"><div class="meter"><i style="width:29%;background:var(--g400)"></i></div><span class="mono xs" style="width:40px">29%</span></div></td><td class="num">16,077</td><td class="num">76%</td><td class="num">2m 10s</td><td class="num">10.4%</td></tr>
+        </tbody></table></div>
+      <div class="feat" style="margin-top:8px">
+        <div><div class="i">✓</div><h3>How a vote counts</h3><p>Three models run the same task on the same repo. The developer applies one. That is one vote for the chosen model against the two shown with it.</p></div>
+        <div><div class="i">◎</div><h3>Tests are part of the record</h3><p>Every result is run against the repo’s own suite. Pass rates are reported per model; a result that fails is still shown, marked.</p></div>
+        <div><div class="i">✎</div><h3>Overrides</h3><p>When a developer rejects all three and fixes it themselves, the task counts as a miss for every model shown. These are the hardest tasks we have.</p></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="ph.js"></script>
+</body></html>

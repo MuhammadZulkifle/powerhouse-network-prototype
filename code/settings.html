@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PowerHouse Code · Data &amp; settings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="ph.css"></head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2 3 14h7l-1 8 10-12h-7z"/></symbol>
+<symbol id="i-repo" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5V4.5M8 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></symbol>
+<symbol id="i-task" viewBox="0 0 24 24"><path d="M9 11l2 2 4-4M5 5h14v14H5z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM6 6H4a3 3 0 0 0 3 4M18 6h2a3 3 0 0 1-3 4M12 13v4M8 21h8M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+<symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol>
+<symbol id="i-discord" viewBox="0 0 24 24"><path fill="currentColor" d="M19.3 5.3A17 17 0 0 0 15.1 4l-.2.4a15 15 0 0 1 3.8 1.9 13 13 0 0 0-13.4 0A15 15 0 0 1 9.1 4.4L8.9 4a17 17 0 0 0-4.2 1.3C2 9.3 1.3 13.1 1.6 16.9a17 17 0 0 0 5.2 2.6l1.1-1.8a11 11 0 0 1-1.7-.8l.4-.3a12 12 0 0 0 10.8 0l.4.3-1.7.8 1.1 1.8a17 17 0 0 0 5.2-2.6c.4-4.4-.7-8.2-3.1-11.6zM8.7 14.6c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1zm6.6 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1z"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+</defs></svg>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html"><span class="mark"><svg><use href="#i-bolt"/></svg></span>PowerHouse <span class="sub">Code</span></a>
+    <div class="ws"><span class="avatar avatar-sm kate">K</span>Kate’s Workspace<svg class="chev" width="16" height="16"><use href="#i-chev"/></svg></div>
+    <a class="btn btn-primary btn-block" href="app.html">New task <span class="k">⌘N</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="app.html"><svg><use href="#i-task"/></svg>Tasks</a>
+      <a href="#repos"><svg><use href="#i-repo"/></svg>Repos <span class="cnt">2</span></a>
+      <a href="leaderboard.html"><svg><use href="#i-trophy"/></svg>Leaderboard</a>
+      <a href="settings.html" aria-current="page"><svg><use href="#i-db"/></svg>Data &amp; settings</a>
+      <a href="#" data-toast="Opens the PowerHouse Discord"><svg><use href="#i-discord"/></svg>Discord <span class="cnt">↗</span></a>
+    </nav>
+    <div class="side-foot"><div class="row"><span class="avatar kate">KM</span><div class="col" style="gap:0"><span class="small" style="font-weight:600">Kate Morrison</span><span class="xs muted-3">kate@retinalsolutions.com</span></div></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar"><h4>Data &amp; settings</h4><button class="btn btn-sm btn-primary" data-toast="Saved">Save changes</button></div>
+    <div class="page stack-6">
+      <section class="stack-3" id="data">
+        <div class="col" style="gap:2px"><h2>What PowerHouse records</h2><p class="muted">PowerHouse Code is free because your choices train better models. Here is exactly what is kept, and what never is.</p></div>
+        <div class="card" style="padding:0"><div class="list" style="padding:0 16px">
+          <div class="row between"><div class="col" style="gap:2px"><b>Preference records</b><span class="small muted">The task, the three diffs, which one you applied, your reason chips and note, and the test results.</span></div><button class="switch" role="switch" aria-checked="true" aria-label="Preference records"></button></div>
+          <div class="row between"><div class="col" style="gap:2px"><b>Override records</b><span class="small muted">When you reject all three, your diff and note are stored as the human fix.</span></div><button class="switch" role="switch" aria-checked="true" aria-label="Override records"></button></div>
+          <div class="row between"><div class="col" style="gap:2px"><b>Next-step signal</b><span class="small muted">Your follow-up prompt after a choice is stored as feedback on what the chosen result still missed.</span></div><button class="switch" role="switch" aria-checked="true" aria-label="Next-step signal"></button></div>
+          <div class="row between"><div class="col" style="gap:2px"><b>Include repository contents</b><span class="small muted">Off: only diffs, file paths and the task are kept. On: the files the models read are kept too, which makes the record more useful. Secrets are always redacted.</span></div><button class="switch" role="switch" aria-checked="false" aria-label="Include repository contents"></button></div>
+          <div class="row between"><div class="col" style="gap:2px"><b>Only record on public repositories</b><span class="small muted">Private repos still get three models; nothing from them is stored.</span></div><button class="switch" role="switch" aria-checked="true" aria-label="Only public"></button></div>
+        </div></div>
+        <div class="note">Records are anonymised before they leave PowerHouse and are sold to AI labs in bulk. No record carries your name, email or repository name. <a class="btn-link" href="#" data-toast="Opens the data terms">Read the data terms</a></div>
+        <div class="row wrap"><button class="btn btn-sm" data-toast="Export requested · you will get an email">Export my records</button><button class="btn btn-sm btn-danger" data-toast="Deletion scheduled · 30 days">Delete all my records</button><span class="xs muted-3">Records already delivered to a lab cannot be recalled.</span></div>
+      </section>
+      <section class="stack-3" id="repos">
+        <div class="col" style="gap:2px"><h2>Repositories</h2><p class="muted">PowerBot works on a copy of the branch in a sandbox. Applying a result pushes a branch and opens a pull request; it never writes to <span class="mono">main</span>.</p></div>
+        <div class="card" style="padding:0"><div class="list" style="padding:0 16px">
+          <div class="row between"><div class="row"><svg width="18" height="18" style="color:var(--g500)"><use href="#i-repo"/></svg><div class="col" style="gap:0"><b>retinal-solutions/intake-app</b><span class="xs muted-3">GitHub · public · default branch main · 14 tasks</span></div></div><span class="row"><span class="badge badge-green">Connected</span><button class="btn btn-xs btn-ghost" data-toast="Disconnected">Disconnect</button></span></div>
+          <div class="row between"><div class="row"><svg width="18" height="18" style="color:var(--g500)"><use href="#i-repo"/></svg><div class="col" style="gap:0"><b>retinal-solutions/billing</b><span class="xs muted-3">GitHub · private · default branch main · 3 tasks · not recorded</span></div></div><span class="row"><span class="badge badge-green">Connected</span><button class="btn btn-xs btn-ghost" data-toast="Disconnected">Disconnect</button></span></div>
+        </div></div>
+        <div class="row wrap"><button class="btn" data-toast="GitHub authorisation opens">Connect a repository</button><button class="btn btn-ghost" data-toast="Opens install page">Use the desktop app for local repos</button></div>
+      </section>
+      <section class="stack-3" id="models">
+        <div class="col" style="gap:2px"><h2>Models</h2><p class="muted">Every task runs on three models drawn from the pool below. You cannot pick them and their names are hidden until you choose, so votes stay honest.</p></div>
+        <div class="row wrap"><span class="badge badge-outline">Claude Opus 5.5</span><span class="badge badge-outline">GPT-5.5</span><span class="badge badge-outline">Gemini 3 Pro</span><span class="badge badge-outline">Muse 6</span><span class="badge badge-outline">DeepSeek V4</span><span class="badge">+2 in evaluation</span></div>
+      </section>
+      <section class="stack-3" id="community">
+        <div class="col" style="gap:2px"><h2>Community</h2><p class="muted">Feature requests, bugs and what to build next live in the Discord, not in the product.</p></div>
+        <div class="card row between"><div class="row"><svg width="22" height="22" style="color:#5865F2"><use href="#i-discord"/></svg><div class="col" style="gap:0"><b>PowerHouse Code on Discord</b><span class="small muted">2,340 developers · #requests · #show-your-diffs · #leaderboard</span></div></div><button class="btn btn-primary btn-sm" data-toast="Opens Discord invite">Join the Discord</button></div>
+      </section>
+      <section class="stack-3" id="account">
+        <div class="col" style="gap:2px"><h2>Account</h2></div>
+        <div class="card row between"><div class="row"><span class="avatar avatar-lg kate">KM</span><div class="col" style="gap:0"><b>Kate Morrison</b><span class="small muted">kate@retinalsolutions.com · signed in with GitHub</span></div></div><button class="btn btn-sm btn-ghost" data-toast="Signed out">Sign out</button></div>
+      </section>
+    </div>
+  </main>
+</div>
+<script src="ph.js"></script>
+</body></html>
